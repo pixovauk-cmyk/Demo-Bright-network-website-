@@ -21,6 +21,8 @@ interface HeroProps {
   trustLine1?: string | null;
   trustLine2?: string | null;
   trustLine3?: string | null;
+  heroImage1?: string | null;
+  heroImage2?: string | null;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   tinaDocument?: any;
 }
@@ -32,6 +34,8 @@ export default function HeroSection({
   trustLine1,
   trustLine2,
   trustLine3,
+  heroImage1,
+  heroImage2,
   tinaDocument,
 }: HeroProps = {}) {
   const [email, setEmail] = useState("");
@@ -183,9 +187,10 @@ export default function HeroSection({
                 }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=85"
+                  src={heroImage1 ?? "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=85"}
                   alt="Team training session"
                   fill className="object-cover" priority sizes="340px"
+                  data-tina-field={tinaDocument ? tinaField(tinaDocument, "heroImage1") : undefined}
                 />
                 {/* Subtle dark overlay at bottom */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#040B18]/30 via-transparent to-transparent" />
@@ -203,9 +208,10 @@ export default function HeroSection({
                 }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=350&q=85"
+                  src={heroImage2 ?? "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=350&q=85"}
                   alt="Apprentice professional"
                   fill className="object-cover object-top" sizes="168px"
+                  data-tina-field={tinaDocument ? tinaField(tinaDocument, "heroImage2") : undefined}
                 />
               </div>
 

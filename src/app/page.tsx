@@ -17,6 +17,30 @@ const homeQuery = `
     ctaSubtext
     ctaPhone
     ctaEmail
+    heroImage1
+    heroImage2
+    stats { value suffix label }
+    employers
+    whyHeadline
+    whySubtext
+    whyImage1
+    whyImage2
+    features { title desc }
+    howHeadline
+    howImage
+    steps { title desc }
+    insightsHeadline
+    insights { tag title date read img href }
+    dualHeadline
+    dualSubtext
+    employerCardHeadline
+    employerCardSubtext
+    employerCardImage
+    employerBullets
+    learnerCardHeadline
+    learnerCardSubtext
+    learnerCardImage
+    learnerBullets
   }
   query home($relativePath: String!) {
     home(relativePath: $relativePath) {
@@ -31,7 +55,7 @@ const homeQuery = `
 
 export default async function Home() {
   const raw = fs.readFileSync(path.join(process.cwd(), "content/home.yaml"), "utf-8");
-  const homeData = yaml.load(raw) as Record<string, string>;
+  const homeData = yaml.load(raw) as Record<string, unknown>;
 
   const courses = getAllCourses();
   const testimonials = getAllTestimonials();

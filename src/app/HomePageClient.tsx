@@ -38,18 +38,25 @@ const CheckIcon = () => (
   </svg>
 );
 
-const features = [
-  { Icon: BoltIcon,     bg: "#DBEAFE", iconColor: "text-sky-600",     title: "Total Programme Delivery", desc: "From job advert to qualification. We manage the entire process so your team focuses on the business, not the admin." },
-  { Icon: PersonIcon,   bg: "#D1FAE5", iconColor: "text-emerald-600", title: "Named Account Manager", desc: "A dedicated person who knows your organisation. Direct contact, no ticketing systems, no call queues." },
-  { Icon: SparklesIcon, bg: "#FEF3C7", iconColor: "text-amber-600",   title: "Tailored Programmes", desc: "Every programme is shaped around your culture and objectives. Not an off-the-shelf package that barely fits." },
-  { Icon: TrendingIcon, bg: "#FCE7F3", iconColor: "text-rose-600",    title: "Measurable ROI", desc: "Our employer partners report a 30% average attrition reduction within 12 months. Numbers that matter at board level." },
+const featureIcons = [BoltIcon, PersonIcon, SparklesIcon, TrendingIcon];
+const featureStyles = [
+  { bg: "#DBEAFE", iconColor: "text-sky-600" },
+  { bg: "#D1FAE5", iconColor: "text-emerald-600" },
+  { bg: "#FEF3C7", iconColor: "text-amber-600" },
+  { bg: "#FCE7F3", iconColor: "text-rose-600" },
 ];
 
-const steps = [
-  { title: "Free Skills Audit", desc: "We identify gaps in your team and map them to the right apprenticeship frameworks. No obligation, no sales pressure." },
-  { title: "Programme Design", desc: "We tailor content, delivery schedule, and assessment to fit your organisation. Not the other way around." },
-  { title: "We Handle Recruitment", desc: "Free job advertising, screening, and interview coordination. Qualified candidates delivered to your door." },
-  { title: "Live Progress Tracking", desc: "Your employer portal shows milestones, attendance, and qualification progress in real time." },
+const statIcons = [
+  <svg key="clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>,
+  <svg key="trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>,
+  <svg key="book" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
+  <svg key="users" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+];
+const statStyles = [
+  { bg: "#DBEAFE", iconColor: "text-sky-600" },
+  { bg: "#D1FAE5", iconColor: "text-emerald-600" },
+  { bg: "#EDE9FE", iconColor: "text-violet-600" },
+  { bg: "#FEF3C7", iconColor: "text-amber-600" },
 ];
 
 const categories = [
@@ -59,17 +66,20 @@ const categories = [
   { name: "Customer Service", href: "/courses?sector=service",  bg: "#FCE7F3", Icon: Users,      desc: "Customer Service Practitioner & Specialist — Levels 2 & 3" },
 ];
 
-const employers = ["Co-Operative Bank", "Leeds Building Society", "Acorn Insurance", "Morrisons", "Marriott Hotels", "Nando's", "Costco", "Arriva Bus"];
-
 const team = [
-  { name: "Alex Glasner",   role: "Chief Executive Officer",       bio: "Leading BrightPeak Group's national apprenticeship strategy. 20+ years driving growth across skills and employment sectors.",                                   img: "/team/ajg_photo.jpg",  bg: "#DBEAFE", initials: "AG" },
-  { name: "Anne Wright",    role: "Chief Executive Officer",       bio: "Experienced education leader helping shape BrightPeak Group's strategic direction across its portfolio of Ofsted Good training providers.",                       img: "/team/aw_photo.jpg",   bg: "#EDE9FE", initials: "AW" },
-  { name: "Simon Corbett",  role: "Chief Revenue Officer",         bio: "Founder of Orangebox Training. 23 years in law enforcement before building one of the North East's most dynamic training providers.",                             img: "/team/sc_photo2.jpg",  bg: "#D1FAE5", initials: "SC" },
-  { name: "Kylee Bates",    role: "Chief Operating Officer",       bio: "Driving operational excellence and quality across three Ofsted Good brands. Expert in scalable delivery models and end-to-end programme management.",             img: "/team/kb_photo.jpg",   bg: "#FCE7F3", initials: "KB" },
-  { name: "Kirstie Wright", role: "Group Director of Excellence",  bio: "20 years in education, formerly CEO of WS Training. Specialist in Ofsted quality frameworks and learner outcomes.",                                               img: "/team/kw_photo.jpg",   bg: "#FEF3C7", initials: "KW" },
-  { name: "George Boylin",  role: "Chief Financial Officer",       bio: "Deep experience in finance across skills and employment sectors. Ensures BrightPeak Group's financial strategy supports sustainable, high-quality delivery.",      img: "/team/gb_photo.jpg",   bg: "#DCFCE7", initials: "GB" },
-  { name: "Neda Nazariyan", role: "Group People & Culture Lead",   bio: "Championing a values-driven culture across the BrightPeak Group. Specialist in talent development, wellbeing, and building high-performing teams.",              img: "/team/nn_photo.avif",  bg: "#FFE4E6", initials: "NN" },
+  { name: "Alex Glasner",   role: "Chief Executive Officer",       bio: "Leading BrightPeak Group's national apprenticeship strategy. 20+ years driving growth across skills and employment sectors.",                                   img: "/team/ajg_photo.jpg",  bg: "#DBEAFE" },
+  { name: "Anne Wright",    role: "Chief Executive Officer",       bio: "Experienced education leader helping shape BrightPeak Group's strategic direction across its portfolio of Ofsted Good training providers.",                       img: "/team/aw_photo.jpg",   bg: "#EDE9FE" },
+  { name: "Simon Corbett",  role: "Chief Revenue Officer",         bio: "Founder of Orangebox Training. 23 years in law enforcement before building one of the North East's most dynamic training providers.",                             img: "/team/sc_photo2.jpg",  bg: "#D1FAE5" },
+  { name: "Kylee Bates",    role: "Chief Operating Officer",       bio: "Driving operational excellence and quality across three Ofsted Good brands. Expert in scalable delivery models and end-to-end programme management.",             img: "/team/kb_photo.jpg",   bg: "#FCE7F3" },
+  { name: "Kirstie Wright", role: "Group Director of Excellence",  bio: "20 years in education, formerly CEO of WS Training. Specialist in Ofsted quality frameworks and learner outcomes.",                                               img: "/team/kw_photo.jpg",   bg: "#FEF3C7" },
+  { name: "George Boylin",  role: "Chief Financial Officer",       bio: "Deep experience in finance across skills and employment sectors. Ensures BrightPeak Group's financial strategy supports sustainable, high-quality delivery.",      img: "/team/gb_photo.jpg",   bg: "#DCFCE7" },
+  { name: "Neda Nazariyan", role: "Group People & Culture Lead",   bio: "Championing a values-driven culture across the BrightPeak Group. Specialist in talent development, wellbeing, and building high-performing teams.",              img: "/team/nn_photo.avif",  bg: "#FFE4E6" },
 ];
+
+type StatItem = { value?: number | null; suffix?: string | null; label?: string | null };
+type FeatureItem = { title?: string | null; desc?: string | null };
+type StepItem = { title?: string | null; desc?: string | null };
+type InsightItem = { tag?: string | null; title?: string | null; date?: string | null; read?: string | null; img?: string | null; href?: string | null };
 
 type HomeData = {
   announcementText?: string | null;
@@ -78,6 +88,30 @@ type HomeData = {
   heroTrustLine1?: string | null;
   heroTrustLine2?: string | null;
   heroTrustLine3?: string | null;
+  heroImage1?: string | null;
+  heroImage2?: string | null;
+  stats?: (StatItem | null)[] | null;
+  employers?: (string | null)[] | null;
+  whyHeadline?: string | null;
+  whySubtext?: string | null;
+  whyImage1?: string | null;
+  whyImage2?: string | null;
+  features?: (FeatureItem | null)[] | null;
+  howHeadline?: string | null;
+  howImage?: string | null;
+  steps?: (StepItem | null)[] | null;
+  insightsHeadline?: string | null;
+  insights?: (InsightItem | null)[] | null;
+  dualHeadline?: string | null;
+  dualSubtext?: string | null;
+  employerCardHeadline?: string | null;
+  employerCardSubtext?: string | null;
+  employerCardImage?: string | null;
+  employerBullets?: (string | null)[] | null;
+  learnerCardHeadline?: string | null;
+  learnerCardSubtext?: string | null;
+  learnerCardImage?: string | null;
+  learnerBullets?: (string | null)[] | null;
   ctaHeadline?: string | null;
   ctaPhone?: string | null;
   ctaEmail?: string | null;
@@ -95,6 +129,14 @@ export default function HomePageClient({ query, variables, data: initialData, fe
   const { data } = useTina({ query, variables, data: initialData });
   const home = data.home;
 
+  const stats = (home.stats ?? []).filter(Boolean) as StatItem[];
+  const employers = (home.employers ?? []).filter(Boolean) as string[];
+  const features = (home.features ?? []).filter(Boolean) as FeatureItem[];
+  const steps = (home.steps ?? []).filter(Boolean) as StepItem[];
+  const insights = (home.insights ?? []).filter(Boolean) as InsightItem[];
+  const employerBullets = (home.employerBullets ?? []).filter(Boolean) as string[];
+  const learnerBullets = (home.learnerBullets ?? []).filter(Boolean) as string[];
+
   return (
     <div>
       {/* Hero */}
@@ -105,6 +147,8 @@ export default function HomePageClient({ query, variables, data: initialData, fe
         trustLine1={home.heroTrustLine1}
         trustLine2={home.heroTrustLine2}
         trustLine3={home.heroTrustLine3}
+        heroImage1={home.heroImage1}
+        heroImage2={home.heroImage2}
         tinaDocument={data.home}
       />
 
@@ -112,49 +156,37 @@ export default function HomePageClient({ query, variables, data: initialData, fe
       <section className="py-10 bg-[#F4F6FF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-4 px-4 pb-3 lg:overflow-visible lg:mx-0 lg:px-0 lg:pb-0">
-            {[
-              {
-                value: 30, suffix: "+", label: "Years Expertise",
-                bg: "#DBEAFE", iconColor: "text-sky-600",
-                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>,
-              },
-              {
-                value: 85, suffix: "%", label: "Success Rate",
-                bg: "#D1FAE5", iconColor: "text-emerald-600",
-                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>,
-              },
-              {
-                value: 21, suffix: "", label: "Programmes",
-                bg: "#EDE9FE", iconColor: "text-violet-600",
-                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
-              },
-              {
-                value: 30, suffix: "%", label: "Less Attrition",
-                bg: "#FEF3C7", iconColor: "text-amber-600",
-                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
-              },
-            ].map((s, i) => (
-              <AnimatedSection key={s.label} delay={i * 0.08} className="snap-start flex-shrink-0 w-[64vw] sm:w-[44vw] md:w-[36vw] lg:flex-1 lg:min-w-0">
-                <div
-                  className="flex items-center gap-4 px-5 py-4 border-2 border-[#040B18]/10 rounded-2xl hover:border-[#040B18]/25 hover:-translate-y-1 hover:shadow-md transition-all duration-200 group h-full"
-                  style={{ backgroundColor: s.bg }}
-                >
-                  <div className={`w-11 h-11 rounded-full bg-white border-2 border-[#040B18]/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all shadow-sm ${s.iconColor}`}>
-                    {s.icon}
+            {stats.map((s, i) => {
+              const style = statStyles[i % statStyles.length];
+              return (
+                <AnimatedSection key={i} delay={i * 0.08} className="snap-start flex-shrink-0 w-[64vw] sm:w-[44vw] md:w-[36vw] lg:flex-1 lg:min-w-0">
+                  <div
+                    className="flex items-center gap-4 px-5 py-4 border-2 border-[#040B18]/10 rounded-2xl hover:border-[#040B18]/25 hover:-translate-y-1 hover:shadow-md transition-all duration-200 group h-full"
+                    style={{ backgroundColor: style.bg }}
+                  >
+                    <div className={`w-11 h-11 rounded-full bg-white border-2 border-[#040B18]/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all shadow-sm ${style.iconColor}`}>
+                      {statIcons[i % statIcons.length]}
+                    </div>
+                    <div>
+                      <StatCounter
+                        value={s.value ?? 0}
+                        suffix={s.suffix ?? ""}
+                        label=""
+                        delay={i * 0.1}
+                        numberClassName="font-display font-black text-2xl text-[#040B18] leading-none"
+                      />
+                      <div
+                        className="text-slate-500 text-xs font-semibold mt-0.5"
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        data-tina-field={tinaField(s as any, "label")}
+                      >
+                        {s.label}
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <StatCounter
-                      value={s.value}
-                      suffix={s.suffix}
-                      label=""
-                      delay={i * 0.1}
-                      numberClassName="font-display font-black text-2xl text-[#040B18] leading-none"
-                    />
-                    <div className="text-slate-500 text-xs font-semibold mt-0.5">{s.label}</div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -228,9 +260,10 @@ export default function HomePageClient({ query, variables, data: initialData, fe
                   style={{ width: 260, height: 360, borderRadius: "46% 46% 20px 20px / 38% 38% 20px 20px" }}
                 >
                   <Image
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=85"
+                    src={home.whyImage1 ?? "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=85"}
                     alt="Apprentices in group training session"
                     fill className="object-cover" sizes="260px"
+                    data-tina-field={tinaField(data.home, "whyImage1")}
                   />
                 </div>
                 <div
@@ -238,9 +271,10 @@ export default function HomePageClient({ query, variables, data: initialData, fe
                   style={{ width: 148, height: 148, bottom: 0, right: 0, borderRadius: 20 }}
                 >
                   <Image
-                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=220&q=85"
+                    src={home.whyImage2 ?? "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=220&q=85"}
                     alt="BrightPeak consultant mentor"
                     fill className="object-cover" sizes="148px"
+                    data-tina-field={tinaField(data.home, "whyImage2")}
                   />
                 </div>
                 <div className="absolute -top-5 -left-6 bg-white rounded-2xl shadow-xl border-2 border-[#040B18]/8 px-5 py-4 z-20">
@@ -260,30 +294,52 @@ export default function HomePageClient({ query, variables, data: initialData, fe
             <div className="order-1 lg:order-2">
               <AnimatedSection direction="right">
                 <span className="text-sky-600 text-sm font-semibold uppercase tracking-widest">Why BrightPeak</span>
-                <h2 className="mt-3 font-display text-4xl md:text-5xl font-black text-[#040B18] leading-tight mb-5">
-                  Infrastructure of a large provider.{" "}
+                <h2
+                  className="mt-3 font-display text-4xl md:text-5xl font-black text-[#040B18] leading-tight mb-5"
+                  data-tina-field={tinaField(data.home, "whyHeadline")}
+                >
+                  {home.whyHeadline ?? "Infrastructure of a large provider."}{" "}
                   <span className="text-slate-400">Care of a small one.</span>
                 </h2>
-                <p className="text-slate-500 text-lg leading-relaxed mb-10">
-                  Three decades of experience means we know what works. We build everything around your organisation, not our sales targets.
+                <p
+                  className="text-slate-500 text-lg leading-relaxed mb-10"
+                  data-tina-field={tinaField(data.home, "whySubtext")}
+                >
+                  {home.whySubtext ?? "Three decades of experience means we know what works. We build everything around your organisation, not our sales targets."}
                 </p>
                 <div className="space-y-7">
-                  {features.map((f, i) => (
-                    <AnimatedSection key={f.title} delay={i * 0.08}>
-                      <div className="flex gap-4">
-                        <div
-                          className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#040B18]/10 ${f.iconColor}`}
-                          style={{ backgroundColor: f.bg }}
-                        >
-                          <f.Icon />
+                  {features.map((f, i) => {
+                    const style = featureStyles[i % featureStyles.length];
+                    const Icon = featureIcons[i % featureIcons.length];
+                    return (
+                      <AnimatedSection key={i} delay={i * 0.08}>
+                        <div className="flex gap-4">
+                          <div
+                            className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#040B18]/10 ${style.iconColor}`}
+                            style={{ backgroundColor: style.bg }}
+                          >
+                            <Icon />
+                          </div>
+                          <div>
+                            <h3
+                              className="font-display text-slate-900 font-bold text-base mb-1"
+                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                              data-tina-field={tinaField(f as any, "title")}
+                            >
+                              {f.title}
+                            </h3>
+                            <p
+                              className="text-slate-500 text-sm leading-relaxed"
+                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                              data-tina-field={tinaField(f as any, "desc")}
+                            >
+                              {f.desc}
+                            </p>
+                          </div>
                         </div>
-                        <div>
-                          <h3 className="font-display text-slate-900 font-bold text-base mb-1">{f.title}</h3>
-                          <p className="text-slate-500 text-sm leading-relaxed">{f.desc}</p>
-                        </div>
-                      </div>
-                    </AnimatedSection>
-                  ))}
+                      </AnimatedSection>
+                    );
+                  })}
                 </div>
               </AnimatedSection>
             </div>
@@ -353,7 +409,6 @@ export default function HomePageClient({ query, variables, data: initialData, fe
             </p>
           </AnimatedSection>
 
-          {/* Carousel — all breakpoints */}
           <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-4 px-4 pb-4">
             {team.map((c) => (
               <div key={c.name} className="snap-start flex-shrink-0 w-[68vw] sm:w-[44vw] md:w-[32vw] lg:w-[220px] xl:w-[240px]">
@@ -361,7 +416,6 @@ export default function HomePageClient({ query, variables, data: initialData, fe
                   className="rounded-3xl p-6 text-center h-full flex flex-col border-2 border-[#040B18]/10 hover:border-[#040B18]/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200 group"
                   style={{ backgroundColor: c.bg }}
                 >
-                  {/* Photo */}
                   <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-md group-hover:scale-105 transition-transform duration-500">
                     <Image
                       src={c.img}
@@ -389,22 +443,37 @@ export default function HomePageClient({ query, variables, data: initialData, fe
             <div>
               <AnimatedSection>
                 <span className="text-sky-600 text-sm font-semibold uppercase tracking-widest">Process</span>
-                <h2 className="mt-3 font-display text-4xl md:text-5xl font-black text-[#040B18] leading-tight mb-12">
-                  From first call to qualified team member
+                <h2
+                  className="mt-3 font-display text-4xl md:text-5xl font-black text-[#040B18] leading-tight mb-12"
+                  data-tina-field={tinaField(data.home, "howHeadline")}
+                >
+                  {home.howHeadline ?? "From first call to qualified team member"}
                 </h2>
               </AnimatedSection>
 
               <div className="relative">
                 <div className="absolute left-5 top-10 bottom-10 w-px bg-slate-100" />
                 {steps.map((step, i) => (
-                  <AnimatedSection key={step.title} delay={i * 0.1}>
+                  <AnimatedSection key={i} delay={i * 0.1}>
                     <div className="flex gap-5 relative pb-10 last:pb-0">
                       <div className="w-10 h-10 rounded-full bg-white border-2 border-[#040B18]/10 flex items-center justify-center text-xs font-black text-sky-600 flex-shrink-0 relative z-10 shadow-sm">
                         {String(i + 1).padStart(2, "0")}
                       </div>
                       <div className="pt-1.5 pb-1">
-                        <h3 className="font-display text-slate-900 font-bold text-lg mb-1.5">{step.title}</h3>
-                        <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
+                        <h3
+                          className="font-display text-slate-900 font-bold text-lg mb-1.5"
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          data-tina-field={tinaField(step as any, "title")}
+                        >
+                          {step.title}
+                        </h3>
+                        <p
+                          className="text-slate-500 text-sm leading-relaxed"
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          data-tina-field={tinaField(step as any, "desc")}
+                        >
+                          {step.desc}
+                        </p>
                       </div>
                     </div>
                   </AnimatedSection>
@@ -421,10 +490,11 @@ export default function HomePageClient({ query, variables, data: initialData, fe
             <AnimatedSection direction="right" className="relative">
               <div className="relative rounded-3xl overflow-hidden h-[500px] lg:h-[580px] shadow-2xl border-2 border-[#040B18]/8">
                 <Image
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&q=85"
+                  src={home.howImage ?? "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&q=85"}
                   alt="Apprentice training session"
                   fill className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  data-tina-field={tinaField(data.home, "howImage")}
                 />
                 <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 border border-white/80 shadow-lg">
                   <div className="flex items-center gap-3">
@@ -458,8 +528,11 @@ export default function HomePageClient({ query, variables, data: initialData, fe
           <AnimatedSection className="flex items-end justify-between gap-4 mb-8">
             <div>
               <p className="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-2">Latest</p>
-              <h2 className="font-display text-4xl md:text-5xl font-black text-[#040B18]">
-                Insights & Guidance
+              <h2
+                className="font-display text-4xl md:text-5xl font-black text-[#040B18]"
+                data-tina-field={tinaField(data.home, "insightsHeadline")}
+              >
+                {home.insightsHeadline ?? "Insights & Guidance"}
               </h2>
             </div>
             <Link href="https://apps.brightpeakgroup.com/" target="_blank" rel="noopener noreferrer" className="text-sky-600 font-semibold text-sm flex items-center gap-1.5 hover:gap-3 transition-all whitespace-nowrap pb-1.5">
@@ -467,37 +540,62 @@ export default function HomePageClient({ query, variables, data: initialData, fe
             </Link>
           </AnimatedSection>
 
-          <div className="flex gap-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-4 px-4 pb-3 lg:grid lg:grid-cols-3 lg:overflow-visible lg:mx-0 lg:px-0 lg:pb-0">
-            {[
-              { tag: "Employers", title: "How the Apprenticeship Levy Works for Your Business", date: "12 May 2025", read: "5 min read", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80", href: "https://apps.brightpeakgroup.com/", bg: "#DBEAFE" },
-              { tag: "Guidance", title: "Level 3 vs Level 4: Which Apprenticeship Is Right for Your Team?", date: "3 Apr 2025", read: "4 min read", img: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=600&q=80", href: "https://apps.brightpeakgroup.com/", bg: "#EDE9FE" },
-              { tag: "Tips", title: "5 Signs Your Organisation Is Ready to Take On an Apprentice", date: "18 Mar 2025", read: "3 min read", img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80", href: "https://apps.brightpeakgroup.com/", bg: "#D1FAE5" },
-            ].map((b, i) => (
-              <AnimatedSection key={b.title} delay={i * 0.1} className="snap-start flex-shrink-0 w-[80vw] sm:w-[55vw] md:w-[42vw] lg:w-auto">
-                <Link href={b.href} target="_blank" rel="noopener noreferrer"
-                  className="rounded-3xl overflow-hidden group cursor-pointer h-full flex flex-col border-2 border-[#040B18]/10 hover:border-[#040B18]/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200"
-                  style={{ backgroundColor: b.bg }}
-                >
-                  <div className="relative h-48 overflow-hidden rounded-t-[22px] flex-shrink-0">
-                    <Image src={b.img} alt={b.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 80vw, 33vw" />
-                    <div className="absolute top-3 left-3">
-                      <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-sky-600 text-white">{b.tag}</span>
-                    </div>
-                  </div>
-                  <div className="p-5 flex-1">
-                    <div className="flex items-center gap-3 text-slate-500 text-xs font-medium mb-3">
-                      <span>{b.date}</span>
-                      <span className="w-1 h-1 rounded-full bg-slate-400/40" />
-                      <span>{b.read}</span>
-                    </div>
-                    <h3 className="font-display font-bold text-[#040B18] text-base leading-snug group-hover:text-sky-700 transition-colors line-clamp-2">
-                      {b.title}
-                    </h3>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            ))}
-          </div>
+          {insights.length > 0 ? (
+            <div className="flex gap-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-4 px-4 pb-3 lg:grid lg:grid-cols-3 lg:overflow-visible lg:mx-0 lg:px-0 lg:pb-0">
+              {insights.map((b, i) => {
+                const bgs = ["#DBEAFE", "#EDE9FE", "#D1FAE5"];
+                const bg = bgs[i % bgs.length];
+                return (
+                  <AnimatedSection key={i} delay={i * 0.1} className="snap-start flex-shrink-0 w-[80vw] sm:w-[55vw] md:w-[42vw] lg:w-auto">
+                    <Link
+                      href={b.href ?? "https://apps.brightpeakgroup.com/"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-3xl overflow-hidden group cursor-pointer h-full flex flex-col border-2 border-[#040B18]/10 hover:border-[#040B18]/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200"
+                      style={{ backgroundColor: bg }}
+                    >
+                      <div className="relative h-48 overflow-hidden rounded-t-[22px] flex-shrink-0">
+                        <Image
+                          src={b.img ?? "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80"}
+                          alt={b.title ?? ""}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 768px) 80vw, 33vw"
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          data-tina-field={tinaField(b as any, "img")}
+                        />
+                        <div className="absolute top-3 left-3">
+                          <span
+                            className="px-3 py-1 rounded-full text-[11px] font-bold bg-sky-600 text-white"
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            data-tina-field={tinaField(b as any, "tag")}
+                          >
+                            {b.tag}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="p-5 flex-1">
+                        <div className="flex items-center gap-3 text-slate-500 text-xs font-medium mb-3">
+                          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                          <span data-tina-field={tinaField(b as any, "date")}>{b.date}</span>
+                          <span className="w-1 h-1 rounded-full bg-slate-400/40" />
+                          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                          <span data-tina-field={tinaField(b as any, "read")}>{b.read}</span>
+                        </div>
+                        <h3
+                          className="font-display font-bold text-[#040B18] text-base leading-snug group-hover:text-sky-700 transition-colors line-clamp-2"
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          data-tina-field={tinaField(b as any, "title")}
+                        >
+                          {b.title}
+                        </h3>
+                      </div>
+                    </Link>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          ) : null}
 
           <div className="text-center mt-10">
             <Link href="https://apps.brightpeakgroup.com/" className="btn-outline-light inline-flex">
@@ -511,12 +609,21 @@ export default function HomePageClient({ query, variables, data: initialData, fe
       <section className="bg-[#F4F6FF] py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="mb-8">
-            <h2 className="font-display text-4xl md:text-5xl font-black text-[#040B18]">
-              For <span className="text-sky-600">employers.</span>{" "}
-              For <span className="text-slate-400">learners.</span>
+            <h2
+              className="font-display text-4xl md:text-5xl font-black text-[#040B18]"
+              data-tina-field={tinaField(data.home, "dualHeadline")}
+            >
+              {home.dualHeadline ? (
+                home.dualHeadline
+              ) : (
+                <>For <span className="text-sky-600">employers.</span>{" "}For <span className="text-slate-400">learners.</span></>
+              )}
             </h2>
-            <p className="mt-3 text-slate-500 text-base max-w-sm">
-              Whether you&apos;re building a team or building a career — we deliver.
+            <p
+              className="mt-3 text-slate-500 text-base max-w-sm"
+              data-tina-field={tinaField(data.home, "dualSubtext")}
+            >
+              {home.dualSubtext ?? "Whether you’re building a team or building a career — we deliver."}
             </p>
           </AnimatedSection>
 
@@ -524,18 +631,39 @@ export default function HomePageClient({ query, variables, data: initialData, fe
             <AnimatedSection delay={0.1} direction="left">
               <div className="rounded-3xl overflow-hidden h-full flex flex-col group border-2 border-[#040B18]/10 hover:border-[#040B18]/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200" style={{ backgroundColor: "#DBEAFE" }}>
                 <div className="relative h-56 overflow-hidden flex-shrink-0">
-                  <Image src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85" alt="Employer team meeting with apprentice" fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 50vw" />
+                  <Image
+                    src={home.employerCardImage ?? "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85"}
+                    alt="Employer team meeting with apprentice"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    data-tina-field={tinaField(data.home, "employerCardImage")}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#040B18]/50 to-transparent" />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1.5 rounded-full text-xs font-bold bg-sky-600 text-white">For Employers</span>
                   </div>
                 </div>
                 <div className="p-7 flex flex-col flex-1">
-                  <h3 className="font-display text-[#040B18] font-black text-2xl mb-2">Grow your team. Zero cost.</h3>
-                  <p className="text-slate-500 text-sm mb-5 leading-relaxed">We handle recruitment, training, and qualification — fully funded by the government. Most employers pay nothing.</p>
+                  <h3
+                    className="font-display text-[#040B18] font-black text-2xl mb-2"
+                    data-tina-field={tinaField(data.home, "employerCardHeadline")}
+                  >
+                    {home.employerCardHeadline ?? "Grow your team. Zero cost."}
+                  </h3>
+                  <p
+                    className="text-slate-500 text-sm mb-5 leading-relaxed"
+                    data-tina-field={tinaField(data.home, "employerCardSubtext")}
+                  >
+                    {home.employerCardSubtext ?? "We handle recruitment, training, and qualification — fully funded by the government. Most employers pay nothing."}
+                  </p>
                   <ul className="space-y-3 mb-7 flex-1">
-                    {["Free recruitment service", "Government funded — no cost to most employers", "Named account manager from day one", "Real-time apprentice progress portal"].map((item) => (
-                      <li key={item} className="flex items-center gap-2.5 text-sm text-slate-600">
+                    {employerBullets.map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-center gap-2.5 text-sm text-slate-600"
+                        data-tina-field={tinaField(data.home, "employerBullets")}
+                      >
                         <span className="text-sky-500 flex-shrink-0"><CheckIcon /></span>
                         {item}
                       </li>
@@ -551,18 +679,39 @@ export default function HomePageClient({ query, variables, data: initialData, fe
             <AnimatedSection delay={0.2} direction="right">
               <div className="rounded-3xl overflow-hidden h-full flex flex-col group border-2 border-[#040B18]/10 hover:border-[#040B18]/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200" style={{ backgroundColor: "#D1FAE5" }}>
                 <div className="relative h-56 overflow-hidden flex-shrink-0">
-                  <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=85" alt="Apprentices at laptops in training session" fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 50vw" />
+                  <Image
+                    src={home.learnerCardImage ?? "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=85"}
+                    alt="Apprentices at laptops in training session"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    data-tina-field={tinaField(data.home, "learnerCardImage")}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#040B18]/40 to-transparent" />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1.5 rounded-full text-xs font-bold bg-amber-500 text-white">For Learners</span>
                   </div>
                 </div>
                 <div className="p-7 flex flex-col flex-1">
-                  <h3 className="font-display text-[#040B18] font-black text-2xl mb-2">Get paid to learn. Build a career.</h3>
-                  <p className="text-slate-500 text-sm mb-5 leading-relaxed">Earn a salary, gain a qualification, and build real experience — all at the same time. No tuition fees.</p>
+                  <h3
+                    className="font-display text-[#040B18] font-black text-2xl mb-2"
+                    data-tina-field={tinaField(data.home, "learnerCardHeadline")}
+                  >
+                    {home.learnerCardHeadline ?? "Get paid to learn. Build a career."}
+                  </h3>
+                  <p
+                    className="text-slate-500 text-sm mb-5 leading-relaxed"
+                    data-tina-field={tinaField(data.home, "learnerCardSubtext")}
+                  >
+                    {home.learnerCardSubtext ?? "Earn a salary, gain a qualification, and build real experience — all at the same time. No tuition fees."}
+                  </p>
                   <ul className="space-y-3 mb-7 flex-1">
-                    {["Earn a salary while you qualify", "Real on-the-job experience from day one", "Dedicated tutor support throughout", "Levels 2–5 across multiple sectors"].map((item) => (
-                      <li key={item} className="flex items-center gap-2.5 text-sm text-slate-600">
+                    {learnerBullets.map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-center gap-2.5 text-sm text-slate-600"
+                        data-tina-field={tinaField(data.home, "learnerBullets")}
+                      >
                         <span className="text-emerald-500 flex-shrink-0"><CheckIcon /></span>
                         {item}
                       </li>
