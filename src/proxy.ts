@@ -7,7 +7,7 @@ const ROLE_ROUTES: Record<string, string> = {
   '/employer': 'employer',
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(
@@ -35,14 +35,12 @@ export async function middleware(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname
 
-  // Find which portal this path is under
   const portalPrefix = Object.keys(ROLE_ROUTES).find(prefix =>
     pathname.startsWith(prefix)
   )
 
   if (!portalPrefix) return supabaseResponse
 
-  // Not logged in → login page
   if (!user) {
     const url = request.nextUrl.clone()
     url.pathname = '/auth/login'
@@ -50,7 +48,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
-  // Fetch role from profiles table
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
@@ -61,7 +58,6 @@ export async function middleware(request: NextRequest) {
   const userRole = profile?.role
 
   if (userRole !== requiredRole) {
-    // Redirect to their correct portal
     const portalMap: Record<string, string> = {
       learner: '/learner',
       admin: '/admin-portal',
