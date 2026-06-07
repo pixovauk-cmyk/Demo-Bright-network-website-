@@ -24,7 +24,7 @@ interface Props {
 export async function generateStaticParams() {
   const courses = getAllCourses();
   return courses.flatMap((c) =>
-    c.modules.map((m) => ({ slug: c.slug, moduleSlug: m.slug }))
+    (c.modules ?? []).map((m) => ({ slug: c.slug, moduleSlug: m.slug }))
   );
 }
 
