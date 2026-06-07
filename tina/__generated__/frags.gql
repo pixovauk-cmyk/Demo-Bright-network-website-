@@ -1,0 +1,36 @@
+fragment CourseParts on Course {
+  __typename
+  title
+  level
+  sector
+  duration
+  tagline
+  description
+  heroImage
+  featured
+  whatYouLearn
+  employerBenefits
+  modules {
+    __typename
+    title
+    slug
+    duration
+    videoUrl
+    description
+    resources
+  }
+}
+
+fragment HomeParts on Home {
+  __typename
+  announcementText
+  heroHeadline
+  heroSubtext
+  heroTrustLine1
+  heroTrustLine2
+  heroTrustLine3
+  ctaHeadline
+  ctaSubtext
+  ctaPhone
+  ctaEmail
+}

@@ -41,6 +41,5 @@ yarn-error.log*
 next-env.d.ts
 
 # TinaCMS
-tina/__generated__
 public/admin
 
