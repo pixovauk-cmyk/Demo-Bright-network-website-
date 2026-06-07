@@ -2,6 +2,40 @@ import { notFound } from "next/navigation";
 import { getAllCourses, getCourseBySlug } from "@/lib/courses";
 import CoursePageClient from "./CoursePageClient";
 
+const courseQuery = `
+  fragment CourseParts on Course {
+    __typename
+    title
+    level
+    sector
+    duration
+    tagline
+    description
+    heroImage
+    featured
+    whatYouLearn
+    employerBenefits
+    modules {
+      __typename
+      title
+      slug
+      duration
+      videoUrl
+      description
+      resources
+    }
+  }
+  query course($relativePath: String!) {
+    course(relativePath: $relativePath) {
+      ... on Document {
+        _sys { filename basename path relativePath extension }
+        id
+      }
+      ...CourseParts
+    }
+  }
+`;
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -30,7 +64,7 @@ export default async function CoursePage({ params }: Props) {
 
   return (
     <CoursePageClient
-      query=""
+      query={courseQuery}
       variables={{ relativePath: `${slug}.yaml` }}
       data={{ course }}
       slug={slug}
