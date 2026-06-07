@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { getAllCourses, getCourseBySlug } from "@/lib/courses";
-import client from "../../../../tina/__generated__/client";
 import CoursePageClient from "./CoursePageClient";
 
 interface Props {
@@ -26,15 +25,14 @@ export default async function CoursePage({ params }: Props) {
   const course = getCourseBySlug(slug);
   if (!course) notFound();
 
-  const tinaData = await client.queries.course({ relativePath: `${slug}.yaml` });
   const allCourses = getAllCourses();
   const related = allCourses.filter((c) => c.slug !== slug).slice(0, 3);
 
   return (
     <CoursePageClient
-      query={tinaData.query}
-      variables={tinaData.variables}
-      data={tinaData.data}
+      query=""
+      variables={{ relativePath: `${slug}.yaml` }}
+      data={{ course }}
       slug={slug}
       related={related}
     />
