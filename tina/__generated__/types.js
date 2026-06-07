@@ -42,6 +42,51 @@ export const HomePartsFragmentDoc = gql`
   ctaSubtext
   ctaPhone
   ctaEmail
+  heroImage1
+  heroImage2
+  stats {
+    __typename
+    value
+    suffix
+    label
+  }
+  employers
+  whyHeadline
+  whySubtext
+  whyImage1
+  whyImage2
+  features {
+    __typename
+    title
+    desc
+  }
+  howHeadline
+  howImage
+  steps {
+    __typename
+    title
+    desc
+  }
+  insightsHeadline
+  insights {
+    __typename
+    tag
+    title
+    date
+    read
+    img
+    href
+  }
+  dualHeadline
+  dualSubtext
+  employerCardHeadline
+  employerCardSubtext
+  employerCardImage
+  employerBullets
+  learnerCardHeadline
+  learnerCardSubtext
+  learnerCardImage
+  learnerBullets
 }
     `;
 export const CourseDocument = gql`

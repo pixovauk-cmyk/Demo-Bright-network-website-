@@ -259,6 +259,35 @@ export type CourseConnection = Connection & {
   edges?: Maybe<Array<Maybe<CourseConnectionEdges>>>;
 };
 
+export type HomeStats = {
+  __typename?: 'HomeStats';
+  value?: Maybe<Scalars['Float']['output']>;
+  suffix?: Maybe<Scalars['String']['output']>;
+  label?: Maybe<Scalars['String']['output']>;
+};
+
+export type HomeFeatures = {
+  __typename?: 'HomeFeatures';
+  title?: Maybe<Scalars['String']['output']>;
+  desc?: Maybe<Scalars['String']['output']>;
+};
+
+export type HomeSteps = {
+  __typename?: 'HomeSteps';
+  title?: Maybe<Scalars['String']['output']>;
+  desc?: Maybe<Scalars['String']['output']>;
+};
+
+export type HomeInsights = {
+  __typename?: 'HomeInsights';
+  tag?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  date?: Maybe<Scalars['String']['output']>;
+  read?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<Scalars['String']['output']>;
+  href?: Maybe<Scalars['String']['output']>;
+};
+
 export type Home = Node & Document & {
   __typename?: 'Home';
   announcementText?: Maybe<Scalars['String']['output']>;
@@ -271,9 +300,68 @@ export type Home = Node & Document & {
   ctaSubtext?: Maybe<Scalars['String']['output']>;
   ctaPhone?: Maybe<Scalars['String']['output']>;
   ctaEmail?: Maybe<Scalars['String']['output']>;
+  heroImage1?: Maybe<Scalars['String']['output']>;
+  heroImage2?: Maybe<Scalars['String']['output']>;
+  stats?: Maybe<Array<Maybe<HomeStats>>>;
+  employers?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  whyHeadline?: Maybe<Scalars['String']['output']>;
+  whySubtext?: Maybe<Scalars['String']['output']>;
+  whyImage1?: Maybe<Scalars['String']['output']>;
+  whyImage2?: Maybe<Scalars['String']['output']>;
+  features?: Maybe<Array<Maybe<HomeFeatures>>>;
+  howHeadline?: Maybe<Scalars['String']['output']>;
+  howImage?: Maybe<Scalars['String']['output']>;
+  steps?: Maybe<Array<Maybe<HomeSteps>>>;
+  insightsHeadline?: Maybe<Scalars['String']['output']>;
+  insights?: Maybe<Array<Maybe<HomeInsights>>>;
+  dualHeadline?: Maybe<Scalars['String']['output']>;
+  dualSubtext?: Maybe<Scalars['String']['output']>;
+  employerCardHeadline?: Maybe<Scalars['String']['output']>;
+  employerCardSubtext?: Maybe<Scalars['String']['output']>;
+  employerCardImage?: Maybe<Scalars['String']['output']>;
+  employerBullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  learnerCardHeadline?: Maybe<Scalars['String']['output']>;
+  learnerCardSubtext?: Maybe<Scalars['String']['output']>;
+  learnerCardImage?: Maybe<Scalars['String']['output']>;
+  learnerBullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
+};
+
+export type NumberFilter = {
+  lt?: InputMaybe<Scalars['Float']['input']>;
+  lte?: InputMaybe<Scalars['Float']['input']>;
+  gte?: InputMaybe<Scalars['Float']['input']>;
+  gt?: InputMaybe<Scalars['Float']['input']>;
+  eq?: InputMaybe<Scalars['Float']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+};
+
+export type HomeStatsFilter = {
+  value?: InputMaybe<NumberFilter>;
+  suffix?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+};
+
+export type HomeFeaturesFilter = {
+  title?: InputMaybe<StringFilter>;
+  desc?: InputMaybe<StringFilter>;
+};
+
+export type HomeStepsFilter = {
+  title?: InputMaybe<StringFilter>;
+  desc?: InputMaybe<StringFilter>;
+};
+
+export type HomeInsightsFilter = {
+  tag?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  date?: InputMaybe<StringFilter>;
+  read?: InputMaybe<StringFilter>;
+  img?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
 };
 
 export type HomeFilter = {
@@ -287,6 +375,30 @@ export type HomeFilter = {
   ctaSubtext?: InputMaybe<StringFilter>;
   ctaPhone?: InputMaybe<StringFilter>;
   ctaEmail?: InputMaybe<StringFilter>;
+  heroImage1?: InputMaybe<StringFilter>;
+  heroImage2?: InputMaybe<StringFilter>;
+  stats?: InputMaybe<HomeStatsFilter>;
+  employers?: InputMaybe<StringFilter>;
+  whyHeadline?: InputMaybe<StringFilter>;
+  whySubtext?: InputMaybe<StringFilter>;
+  whyImage1?: InputMaybe<StringFilter>;
+  whyImage2?: InputMaybe<StringFilter>;
+  features?: InputMaybe<HomeFeaturesFilter>;
+  howHeadline?: InputMaybe<StringFilter>;
+  howImage?: InputMaybe<StringFilter>;
+  steps?: InputMaybe<HomeStepsFilter>;
+  insightsHeadline?: InputMaybe<StringFilter>;
+  insights?: InputMaybe<HomeInsightsFilter>;
+  dualHeadline?: InputMaybe<StringFilter>;
+  dualSubtext?: InputMaybe<StringFilter>;
+  employerCardHeadline?: InputMaybe<StringFilter>;
+  employerCardSubtext?: InputMaybe<StringFilter>;
+  employerCardImage?: InputMaybe<StringFilter>;
+  employerBullets?: InputMaybe<StringFilter>;
+  learnerCardHeadline?: InputMaybe<StringFilter>;
+  learnerCardSubtext?: InputMaybe<StringFilter>;
+  learnerCardImage?: InputMaybe<StringFilter>;
+  learnerBullets?: InputMaybe<StringFilter>;
 };
 
 export type HomeConnectionEdges = {
@@ -406,6 +518,31 @@ export type CourseMutation = {
   modules?: InputMaybe<Array<InputMaybe<CourseModulesMutation>>>;
 };
 
+export type HomeStatsMutation = {
+  value?: InputMaybe<Scalars['Float']['input']>;
+  suffix?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomeFeaturesMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  desc?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomeStepsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  desc?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomeInsightsMutation = {
+  tag?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  date?: InputMaybe<Scalars['String']['input']>;
+  read?: InputMaybe<Scalars['String']['input']>;
+  img?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type HomeMutation = {
   announcementText?: InputMaybe<Scalars['String']['input']>;
   heroHeadline?: InputMaybe<Scalars['String']['input']>;
@@ -417,11 +554,35 @@ export type HomeMutation = {
   ctaSubtext?: InputMaybe<Scalars['String']['input']>;
   ctaPhone?: InputMaybe<Scalars['String']['input']>;
   ctaEmail?: InputMaybe<Scalars['String']['input']>;
+  heroImage1?: InputMaybe<Scalars['String']['input']>;
+  heroImage2?: InputMaybe<Scalars['String']['input']>;
+  stats?: InputMaybe<Array<InputMaybe<HomeStatsMutation>>>;
+  employers?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  whyHeadline?: InputMaybe<Scalars['String']['input']>;
+  whySubtext?: InputMaybe<Scalars['String']['input']>;
+  whyImage1?: InputMaybe<Scalars['String']['input']>;
+  whyImage2?: InputMaybe<Scalars['String']['input']>;
+  features?: InputMaybe<Array<InputMaybe<HomeFeaturesMutation>>>;
+  howHeadline?: InputMaybe<Scalars['String']['input']>;
+  howImage?: InputMaybe<Scalars['String']['input']>;
+  steps?: InputMaybe<Array<InputMaybe<HomeStepsMutation>>>;
+  insightsHeadline?: InputMaybe<Scalars['String']['input']>;
+  insights?: InputMaybe<Array<InputMaybe<HomeInsightsMutation>>>;
+  dualHeadline?: InputMaybe<Scalars['String']['input']>;
+  dualSubtext?: InputMaybe<Scalars['String']['input']>;
+  employerCardHeadline?: InputMaybe<Scalars['String']['input']>;
+  employerCardSubtext?: InputMaybe<Scalars['String']['input']>;
+  employerCardImage?: InputMaybe<Scalars['String']['input']>;
+  employerBullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  learnerCardHeadline?: InputMaybe<Scalars['String']['input']>;
+  learnerCardSubtext?: InputMaybe<Scalars['String']['input']>;
+  learnerCardImage?: InputMaybe<Scalars['String']['input']>;
+  learnerBullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type CoursePartsFragment = { __typename: 'Course', title: string, level?: string | null, sector?: string | null, duration?: string | null, tagline?: string | null, description?: string | null, heroImage?: string | null, featured?: boolean | null, whatYouLearn?: Array<string | null> | null, employerBenefits?: Array<string | null> | null, modules?: Array<{ __typename: 'CourseModules', title: string, slug?: string | null, duration?: string | null, videoUrl?: string | null, description?: string | null, resources?: Array<string | null> | null } | null> | null };
 
-export type HomePartsFragment = { __typename: 'Home', announcementText?: string | null, heroHeadline?: string | null, heroSubtext?: string | null, heroTrustLine1?: string | null, heroTrustLine2?: string | null, heroTrustLine3?: string | null, ctaHeadline?: string | null, ctaSubtext?: string | null, ctaPhone?: string | null, ctaEmail?: string | null };
+export type HomePartsFragment = { __typename: 'Home', announcementText?: string | null, heroHeadline?: string | null, heroSubtext?: string | null, heroTrustLine1?: string | null, heroTrustLine2?: string | null, heroTrustLine3?: string | null, ctaHeadline?: string | null, ctaSubtext?: string | null, ctaPhone?: string | null, ctaEmail?: string | null, heroImage1?: string | null, heroImage2?: string | null, employers?: Array<string | null> | null, whyHeadline?: string | null, whySubtext?: string | null, whyImage1?: string | null, whyImage2?: string | null, howHeadline?: string | null, howImage?: string | null, insightsHeadline?: string | null, dualHeadline?: string | null, dualSubtext?: string | null, employerCardHeadline?: string | null, employerCardSubtext?: string | null, employerCardImage?: string | null, employerBullets?: Array<string | null> | null, learnerCardHeadline?: string | null, learnerCardSubtext?: string | null, learnerCardImage?: string | null, learnerBullets?: Array<string | null> | null, stats?: Array<{ __typename: 'HomeStats', value?: number | null, suffix?: string | null, label?: string | null } | null> | null, features?: Array<{ __typename: 'HomeFeatures', title?: string | null, desc?: string | null } | null> | null, steps?: Array<{ __typename: 'HomeSteps', title?: string | null, desc?: string | null } | null> | null, insights?: Array<{ __typename: 'HomeInsights', tag?: string | null, title?: string | null, date?: string | null, read?: string | null, img?: string | null, href?: string | null } | null> | null };
 
 export type CourseQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -447,7 +608,7 @@ export type HomeQueryVariables = Exact<{
 }>;
 
 
-export type HomeQuery = { __typename?: 'Query', home: { __typename: 'Home', id: string, announcementText?: string | null, heroHeadline?: string | null, heroSubtext?: string | null, heroTrustLine1?: string | null, heroTrustLine2?: string | null, heroTrustLine3?: string | null, ctaHeadline?: string | null, ctaSubtext?: string | null, ctaPhone?: string | null, ctaEmail?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type HomeQuery = { __typename?: 'Query', home: { __typename: 'Home', id: string, announcementText?: string | null, heroHeadline?: string | null, heroSubtext?: string | null, heroTrustLine1?: string | null, heroTrustLine2?: string | null, heroTrustLine3?: string | null, ctaHeadline?: string | null, ctaSubtext?: string | null, ctaPhone?: string | null, ctaEmail?: string | null, heroImage1?: string | null, heroImage2?: string | null, employers?: Array<string | null> | null, whyHeadline?: string | null, whySubtext?: string | null, whyImage1?: string | null, whyImage2?: string | null, howHeadline?: string | null, howImage?: string | null, insightsHeadline?: string | null, dualHeadline?: string | null, dualSubtext?: string | null, employerCardHeadline?: string | null, employerCardSubtext?: string | null, employerCardImage?: string | null, employerBullets?: Array<string | null> | null, learnerCardHeadline?: string | null, learnerCardSubtext?: string | null, learnerCardImage?: string | null, learnerBullets?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, stats?: Array<{ __typename: 'HomeStats', value?: number | null, suffix?: string | null, label?: string | null } | null> | null, features?: Array<{ __typename: 'HomeFeatures', title?: string | null, desc?: string | null } | null> | null, steps?: Array<{ __typename: 'HomeSteps', title?: string | null, desc?: string | null } | null> | null, insights?: Array<{ __typename: 'HomeInsights', tag?: string | null, title?: string | null, date?: string | null, read?: string | null, img?: string | null, href?: string | null } | null> | null } };
 
 export type HomeConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -459,7 +620,7 @@ export type HomeConnectionQueryVariables = Exact<{
 }>;
 
 
-export type HomeConnectionQuery = { __typename?: 'Query', homeConnection: { __typename?: 'HomeConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'HomeConnectionEdges', cursor: string, node?: { __typename: 'Home', id: string, announcementText?: string | null, heroHeadline?: string | null, heroSubtext?: string | null, heroTrustLine1?: string | null, heroTrustLine2?: string | null, heroTrustLine3?: string | null, ctaHeadline?: string | null, ctaSubtext?: string | null, ctaPhone?: string | null, ctaEmail?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type HomeConnectionQuery = { __typename?: 'Query', homeConnection: { __typename?: 'HomeConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'HomeConnectionEdges', cursor: string, node?: { __typename: 'Home', id: string, announcementText?: string | null, heroHeadline?: string | null, heroSubtext?: string | null, heroTrustLine1?: string | null, heroTrustLine2?: string | null, heroTrustLine3?: string | null, ctaHeadline?: string | null, ctaSubtext?: string | null, ctaPhone?: string | null, ctaEmail?: string | null, heroImage1?: string | null, heroImage2?: string | null, employers?: Array<string | null> | null, whyHeadline?: string | null, whySubtext?: string | null, whyImage1?: string | null, whyImage2?: string | null, howHeadline?: string | null, howImage?: string | null, insightsHeadline?: string | null, dualHeadline?: string | null, dualSubtext?: string | null, employerCardHeadline?: string | null, employerCardSubtext?: string | null, employerCardImage?: string | null, employerBullets?: Array<string | null> | null, learnerCardHeadline?: string | null, learnerCardSubtext?: string | null, learnerCardImage?: string | null, learnerBullets?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, stats?: Array<{ __typename: 'HomeStats', value?: number | null, suffix?: string | null, label?: string | null } | null> | null, features?: Array<{ __typename: 'HomeFeatures', title?: string | null, desc?: string | null } | null> | null, steps?: Array<{ __typename: 'HomeSteps', title?: string | null, desc?: string | null } | null> | null, insights?: Array<{ __typename: 'HomeInsights', tag?: string | null, title?: string | null, date?: string | null, read?: string | null, img?: string | null, href?: string | null } | null> | null } | null } | null> | null } };
 
 export const CoursePartsFragmentDoc = gql`
     fragment CourseParts on Course {
@@ -498,6 +659,51 @@ export const HomePartsFragmentDoc = gql`
   ctaSubtext
   ctaPhone
   ctaEmail
+  heroImage1
+  heroImage2
+  stats {
+    __typename
+    value
+    suffix
+    label
+  }
+  employers
+  whyHeadline
+  whySubtext
+  whyImage1
+  whyImage2
+  features {
+    __typename
+    title
+    desc
+  }
+  howHeadline
+  howImage
+  steps {
+    __typename
+    title
+    desc
+  }
+  insightsHeadline
+  insights {
+    __typename
+    tag
+    title
+    date
+    read
+    img
+    href
+  }
+  dualHeadline
+  dualSubtext
+  employerCardHeadline
+  employerCardSubtext
+  employerCardImage
+  employerBullets
+  learnerCardHeadline
+  learnerCardSubtext
+  learnerCardImage
+  learnerBullets
 }
     `;
 export const CourseDocument = gql`

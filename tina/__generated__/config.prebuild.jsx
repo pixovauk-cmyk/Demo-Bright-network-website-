@@ -184,7 +184,83 @@ var config_default = defineConfig({
             name: "ctaEmail",
             type: "string",
             label: "Contact Email"
-          }
+          },
+          // ── Hero images ──
+          { name: "heroImage1", type: "string", label: "Hero \u2014 Main Image URL" },
+          { name: "heroImage2", type: "string", label: "Hero \u2014 Small Image URL" },
+          // ── Stats ──
+          {
+            name: "stats",
+            type: "object",
+            label: "Stats",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.label || "Stat" }) },
+            fields: [
+              { name: "value", type: "number", label: "Number" },
+              { name: "suffix", type: "string", label: "Suffix (e.g. %, +)" },
+              { name: "label", type: "string", label: "Label" }
+            ]
+          },
+          // ── Employers marquee ──
+          { name: "employers", type: "string", label: "Employer Names (marquee)", list: true },
+          // ── Why BrightPeak ──
+          { name: "whyHeadline", type: "string", label: "Why BrightPeak \u2014 Headline" },
+          { name: "whySubtext", type: "string", label: "Why BrightPeak \u2014 Subtext", ui: { component: "textarea" } },
+          { name: "whyImage1", type: "string", label: "Why BrightPeak \u2014 Main Image URL" },
+          { name: "whyImage2", type: "string", label: "Why BrightPeak \u2014 Small Image URL" },
+          {
+            name: "features",
+            type: "object",
+            label: "Why BrightPeak \u2014 Features",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.title || "Feature" }) },
+            fields: [
+              { name: "title", type: "string", label: "Title" },
+              { name: "desc", type: "string", label: "Description", ui: { component: "textarea" } }
+            ]
+          },
+          // ── How It Works ──
+          { name: "howHeadline", type: "string", label: "How It Works \u2014 Headline" },
+          { name: "howImage", type: "string", label: "How It Works \u2014 Image URL" },
+          {
+            name: "steps",
+            type: "object",
+            label: "How It Works \u2014 Steps",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.title || "Step" }) },
+            fields: [
+              { name: "title", type: "string", label: "Step Title" },
+              { name: "desc", type: "string", label: "Step Description", ui: { component: "textarea" } }
+            ]
+          },
+          // ── Insights ──
+          { name: "insightsHeadline", type: "string", label: "Insights \u2014 Headline" },
+          {
+            name: "insights",
+            type: "object",
+            label: "Insights \u2014 Blog Posts",
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.title || "Post" }) },
+            fields: [
+              { name: "tag", type: "string", label: "Tag" },
+              { name: "title", type: "string", label: "Title" },
+              { name: "date", type: "string", label: "Date" },
+              { name: "read", type: "string", label: "Read Time" },
+              { name: "img", type: "string", label: "Image URL" },
+              { name: "href", type: "string", label: "Link URL" }
+            ]
+          },
+          // ── Dual Audience ──
+          { name: "dualHeadline", type: "string", label: "Dual Audience \u2014 Headline" },
+          { name: "dualSubtext", type: "string", label: "Dual Audience \u2014 Subtext" },
+          { name: "employerCardHeadline", type: "string", label: "Employer Card \u2014 Headline" },
+          { name: "employerCardSubtext", type: "string", label: "Employer Card \u2014 Subtext", ui: { component: "textarea" } },
+          { name: "employerCardImage", type: "string", label: "Employer Card \u2014 Image URL" },
+          { name: "employerBullets", type: "string", label: "Employer Card \u2014 Bullet Points", list: true },
+          { name: "learnerCardHeadline", type: "string", label: "Learner Card \u2014 Headline" },
+          { name: "learnerCardSubtext", type: "string", label: "Learner Card \u2014 Subtext", ui: { component: "textarea" } },
+          { name: "learnerCardImage", type: "string", label: "Learner Card \u2014 Image URL" },
+          { name: "learnerBullets", type: "string", label: "Learner Card \u2014 Bullet Points", list: true }
         ]
       }
     ]
