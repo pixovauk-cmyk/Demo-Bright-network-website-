@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getAllCourses, getCourseBySlug } from "@/lib/courses";
 import { getLevelLabel, getLevelColor } from "@/lib/utils";
 import VideoPlayer from "@/components/VideoPlayer";
+import MarkCompleteButton from "@/components/MarkCompleteButton";
 import {
   ChevronRight,
   Clock,
@@ -316,6 +317,12 @@ export default async function ModulePage({ params }: Props) {
           </div>
         </div>
       </div>
+
+      <MarkCompleteButton
+        courseSlug={slug}
+        moduleSlug={moduleSlug}
+        totalModules={course.modules.length}
+      />
     </div>
   );
 }

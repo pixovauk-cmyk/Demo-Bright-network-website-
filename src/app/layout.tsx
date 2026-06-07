@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import AIChatWidget from "@/components/AIChatWidget";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -31,10 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={jakarta.variable}>
       <body className="bg-[#F4F6FF] text-slate-900 antialiased min-h-screen">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <AIChatWidget />
+        {children}
       </body>
     </html>
   );

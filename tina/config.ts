@@ -145,7 +145,7 @@ export default defineConfig({
           {
             name: "heroHeadline",
             type: "string",
-            label: "Hero Headline (first line)",
+            label: "Hero Headline",
           },
           {
             name: "heroSubtext",
@@ -156,22 +156,22 @@ export default defineConfig({
           {
             name: "heroTrustLine1",
             type: "string",
-            label: "Trust Chip 1 (e.g. Named account manager)",
+            label: "Trust Chip 1",
           },
           {
             name: "heroTrustLine2",
             type: "string",
-            label: "Trust Chip 2 (e.g. Ofsted Good)",
+            label: "Trust Chip 2",
           },
           {
             name: "heroTrustLine3",
             type: "string",
-            label: "Trust Chip 3 (e.g. 100% funded)",
+            label: "Trust Chip 3",
           },
           {
             name: "ctaHeadline",
             type: "string",
-            label: "CTA Section Headline",
+            label: "CTA Headline",
           },
           {
             name: "ctaSubtext",
@@ -182,96 +182,13 @@ export default defineConfig({
           {
             name: "ctaPhone",
             type: "string",
-            label: "Contact Phone Number",
+            label: "Phone Number",
           },
           {
             name: "ctaEmail",
             type: "string",
-            label: "Contact Email",
+            label: "Email",
           },
-
-          // ── Hero images ──
-          { name: "heroImage1", type: "string", label: "Hero — Main Image URL" },
-          { name: "heroImage2", type: "string", label: "Hero — Small Image URL" },
-
-          // ── Stats ──
-          {
-            name: "stats",
-            type: "object",
-            label: "Stats",
-            list: true,
-            ui: { itemProps: (item: { label?: string }) => ({ label: item?.label || "Stat" }) },
-            fields: [
-              { name: "value", type: "number", label: "Number" },
-              { name: "suffix", type: "string", label: "Suffix (e.g. %, +)" },
-              { name: "label", type: "string", label: "Label" },
-            ],
-          },
-
-          // ── Employers marquee ──
-          { name: "employers", type: "string", label: "Employer Names (marquee)", list: true },
-
-          // ── Why BrightPeak ──
-          { name: "whyHeadline", type: "string", label: "Why BrightPeak — Headline" },
-          { name: "whySubtext", type: "string", label: "Why BrightPeak — Subtext", ui: { component: "textarea" } },
-          { name: "whyImage1", type: "string", label: "Why BrightPeak — Main Image URL" },
-          { name: "whyImage2", type: "string", label: "Why BrightPeak — Small Image URL" },
-          {
-            name: "features",
-            type: "object",
-            label: "Why BrightPeak — Features",
-            list: true,
-            ui: { itemProps: (item: { title?: string }) => ({ label: item?.title || "Feature" }) },
-            fields: [
-              { name: "title", type: "string", label: "Title" },
-              { name: "desc", type: "string", label: "Description", ui: { component: "textarea" } },
-            ],
-          },
-
-          // ── How It Works ──
-          { name: "howHeadline", type: "string", label: "How It Works — Headline" },
-          { name: "howImage", type: "string", label: "How It Works — Image URL" },
-          {
-            name: "steps",
-            type: "object",
-            label: "How It Works — Steps",
-            list: true,
-            ui: { itemProps: (item: { title?: string }) => ({ label: item?.title || "Step" }) },
-            fields: [
-              { name: "title", type: "string", label: "Step Title" },
-              { name: "desc", type: "string", label: "Step Description", ui: { component: "textarea" } },
-            ],
-          },
-
-          // ── Insights ──
-          { name: "insightsHeadline", type: "string", label: "Insights — Headline" },
-          {
-            name: "insights",
-            type: "object",
-            label: "Insights — Blog Posts",
-            list: true,
-            ui: { itemProps: (item: { title?: string }) => ({ label: item?.title || "Post" }) },
-            fields: [
-              { name: "tag", type: "string", label: "Tag" },
-              { name: "title", type: "string", label: "Title" },
-              { name: "date", type: "string", label: "Date" },
-              { name: "read", type: "string", label: "Read Time" },
-              { name: "img", type: "string", label: "Image URL" },
-              { name: "href", type: "string", label: "Link URL" },
-            ],
-          },
-
-          // ── Dual Audience ──
-          { name: "dualHeadline", type: "string", label: "Dual Audience — Headline" },
-          { name: "dualSubtext", type: "string", label: "Dual Audience — Subtext" },
-          { name: "employerCardHeadline", type: "string", label: "Employer Card — Headline" },
-          { name: "employerCardSubtext", type: "string", label: "Employer Card — Subtext", ui: { component: "textarea" } },
-          { name: "employerCardImage", type: "string", label: "Employer Card — Image URL" },
-          { name: "employerBullets", type: "string", label: "Employer Card — Bullet Points", list: true },
-          { name: "learnerCardHeadline", type: "string", label: "Learner Card — Headline" },
-          { name: "learnerCardSubtext", type: "string", label: "Learner Card — Subtext", ui: { component: "textarea" } },
-          { name: "learnerCardImage", type: "string", label: "Learner Card — Image URL" },
-          { name: "learnerBullets", type: "string", label: "Learner Card — Bullet Points", list: true },
         ],
       },
     ],

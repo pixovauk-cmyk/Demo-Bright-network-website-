@@ -12,6 +12,8 @@
     "@anthropic-ai/sdk": "^0.102.0",
     "@keystatic/core": "^0.5.50",
     "@keystatic/next": "^5.0.4",
+    "@supabase/ssr": "^0.10.3",
+    "@supabase/supabase-js": "^2.107.0",
     "@tinacms/cli": "^2.4.4",
     "@types/js-yaml": "^4.0.9",
     "class-variance-authority": "^0.7.1",
