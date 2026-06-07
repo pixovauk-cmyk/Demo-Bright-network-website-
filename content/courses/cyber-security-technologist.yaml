@@ -1,0 +1,53 @@
+title: Cyber Security Technologist
+level: "4"
+sector: tech
+duration: 24 months
+tagline: Defend organisations against the threats that matter most
+description: Develop the technical and strategic skills to protect systems, networks, and data. Cover threat intelligence, penetration testing, security architecture, and compliance frameworks used in real organisations.
+heroImage: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80
+featured: true
+whatYouLearn:
+  - Conduct risk assessments and vulnerability scans
+  - Implement security architecture and controls
+  - Respond to and document security incidents
+  - Apply GDPR, ISO 27001, and NCSC frameworks
+  - Perform ethical hacking and penetration testing
+  - Build security awareness programmes for staff
+employerBenefits:
+  - Upskill existing IT staff into specialist cyber roles
+  - Build an in-house security capability without external consultancy costs
+  - 100% government funded at Level 4
+  - Meet regulatory obligations with trained internal expertise
+modules:
+  - title: "Foundations of Cyber Security"
+    slug: foundations-cyber-security
+    duration: 60 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: The threat landscape, attack vectors, CIA triad, and the role of the cyber security technologist in a modern organisation.
+    resources:
+      - "NCSC Cyber Essentials Guide"
+      - "Threat Intelligence Glossary"
+  - title: "Network Security and Architecture"
+    slug: network-security
+    duration: 70 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Firewalls, VPNs, segmentation, and zero-trust architecture. How networks are designed and hardened against attack.
+    resources:
+      - "Network Diagram Templates"
+      - "Zero Trust Whitepaper"
+  - title: "Ethical Hacking and Pen Testing"
+    slug: ethical-hacking
+    duration: 90 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Reconnaissance, exploitation, and reporting. Legal and ethical frameworks governing penetration testing engagements.
+    resources:
+      - "Pen Test Report Template"
+      - "OWASP Top 10 Reference"
+  - title: "Incident Response and Recovery"
+    slug: incident-response
+    duration: 65 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: How to detect, contain, eradicate, and recover from cyber incidents. Building a response playbook for your organisation.
+    resources:
+      - "Incident Response Playbook Template"
+      - "SIEM Alert Triage Guide"

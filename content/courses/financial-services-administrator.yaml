@@ -1,0 +1,53 @@
+title: Financial Services Administrator
+level: "3"
+sector: finance
+duration: 17 months
+tagline: The professional backbone of every financial services team
+description: Gain the technical knowledge and administrative skills to operate compliantly within regulated financial services. Covers products, regulation, customer service, and back-office processes.
+heroImage: https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80
+featured: true
+whatYouLearn:
+  - Understand FCA regulation and financial services compliance
+  - Process financial products, applications, and client records accurately
+  - Handle customer enquiries professionally and within regulatory standards
+  - Use financial services software and administration systems
+  - Apply anti-money laundering and data protection principles
+  - Support advisers and senior staff with client-facing administration
+employerBenefits:
+  - Build a compliant, capable back-office team
+  - Reduce regulatory risk through trained staff
+  - 100% government funded — no cost to most employers
+  - Ideal for banks, insurers, mortgage brokers, and IFAs
+modules:
+  - title: "Introduction to Financial Services"
+    slug: intro-financial-services
+    duration: 50 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: An overview of the UK financial services landscape, key regulators, and the role of the financial services administrator.
+    resources:
+      - "FCA Regulation Overview"
+      - "Financial Products Glossary"
+  - title: "Regulatory Compliance Fundamentals"
+    slug: regulatory-compliance-fundamentals
+    duration: 55 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: GDPR, AML, conduct risk, and how compliance requirements shape everyday administration tasks.
+    resources:
+      - "Compliance Checklist"
+      - "AML Red Flags Guide"
+  - title: "Processing Applications and Records"
+    slug: processing-applications
+    duration: 45 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Accurately handling client onboarding, product applications, and maintaining compliant records.
+    resources:
+      - "Application Processing SOP"
+      - "Record Keeping Standards"
+  - title: "Customer Service in Financial Services"
+    slug: customer-service-finserv
+    duration: 40 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Delivering excellent service within the constraints and expectations of a regulated environment.
+    resources:
+      - "Vulnerable Customer Framework"
+      - "Complaint Handling Procedure"

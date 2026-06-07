@@ -1,0 +1,53 @@
+title: Customer Service Practitioner
+level: "2"
+sector: service
+duration: 12 months
+tagline: Build the skills that keep customers coming back
+description: Develop the customer handling, communication, and problem-solving skills employers need. Ideal for retail, hospitality, financial services, and contact centres. Fully government funded.
+heroImage: https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80
+featured: true
+whatYouLearn:
+  - Understand customer needs and deliver consistently excellent service
+  - Handle complaints and difficult situations with confidence
+  - Communicate professionally across phone, email, and in person
+  - Use CRM systems and service technology effectively
+  - Build product and service knowledge to advise customers accurately
+  - Develop professional relationships with customers and colleagues
+employerBenefits:
+  - Reduce customer complaints and improve satisfaction scores
+  - Build a pipeline of skilled customer-facing staff
+  - 100% government funded — zero cost to most employers
+  - Flexible delivery around your shift patterns
+modules:
+  - title: "Understanding Your Customer"
+    slug: understanding-your-customer
+    duration: 40 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Who your customers are, what they expect, and how to identify and respond to their needs in any situation.
+    resources:
+      - "Customer Needs Mapping Template"
+      - "Service Standards Reference Guide"
+  - title: "Delivering Excellent Service"
+    slug: delivering-excellent-service
+    duration: 45 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Practical frameworks for consistent, high-quality service delivery across all customer touchpoints.
+    resources:
+      - "Service Quality Checklist"
+      - "First Call Resolution Guide"
+  - title: "Handling Difficult Situations"
+    slug: handling-difficult-situations
+    duration: 50 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: De-escalation techniques, complaint handling procedures, and turning negative experiences into positive outcomes.
+    resources:
+      - "Complaint Resolution Framework"
+      - "De-escalation Script Templates"
+  - title: "Professional Communication"
+    slug: professional-communication
+    duration: 40 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Written and verbal communication skills for email, phone, live chat, and face-to-face interactions.
+    resources:
+      - "Email Templates Pack"
+      - "Active Listening Techniques Guide"

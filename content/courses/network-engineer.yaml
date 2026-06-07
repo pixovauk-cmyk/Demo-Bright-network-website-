@@ -1,0 +1,54 @@
+title: Network Engineer
+level: "4"
+sector: tech
+duration: 24 months
+tagline: Design, build and manage the networks that power modern business
+description: A higher-level technical apprenticeship for those responsible for designing, implementing, and maintaining enterprise network infrastructure. Covers routing, switching, cloud networking, security, and troubleshooting.
+heroImage: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80
+featured: false
+whatYouLearn:
+  - Design and implement LAN, WAN, and cloud network solutions
+  - Configure and manage routers, switches, and firewalls
+  - Apply network security principles and monitor for threats
+  - Troubleshoot complex network issues using diagnostic tools
+  - Plan and execute network upgrades and migrations
+  - Document infrastructure and produce technical reports for stakeholders
+employerBenefits:
+  - Build Level 4 technical expertise in your network team
+  - Reduce dependency on expensive external contractors
+  - 100% government funded — no cost to most employers
+  - Aligned to Cisco, CompTIA, and BCS frameworks
+modules:
+  - title: "Network Fundamentals"
+    slug: network-fundamentals
+    duration: 60 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: OSI and TCP/IP models, IP addressing, subnetting, and core networking concepts.
+    resources:
+      - "Subnet Calculator Reference"
+      - "OSI Model Cheat Sheet"
+      - "IP Addressing Guide"
+  - title: "Routing and Switching"
+    slug: routing-switching
+    duration: 70 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Configuring static and dynamic routing protocols (OSPF, EIGRP, BGP), VLANs, and spanning tree.
+    resources:
+      - "Routing Protocol Comparison"
+      - "VLAN Configuration Guide"
+  - title: "Network Security"
+    slug: network-security
+    duration: 65 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Firewall configuration, ACLs, VPNs, intrusion detection, and zero-trust network principles.
+    resources:
+      - "Firewall Rule Templates"
+      - "VPN Setup Checklist"
+  - title: "Cloud and Hybrid Networking"
+    slug: cloud-hybrid-networking
+    duration: 60 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Azure and AWS networking concepts, hybrid connectivity, and managing cloud-based infrastructure.
+    resources:
+      - "Azure Virtual Network Guide"
+      - "AWS Networking Fundamentals"

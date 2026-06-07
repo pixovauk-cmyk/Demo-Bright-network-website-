@@ -1,0 +1,56 @@
+title: Business Administrator
+level: "3"
+sector: business
+duration: 18 months
+tagline: Master the backbone of every successful organisation
+description: Build core business skills across communication, project coordination, team support, and process efficiency. This programme equips you to drive results in any organisation from day one.
+heroImage: https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80
+featured: true
+whatYouLearn:
+  - Manage and improve complex business processes
+  - Lead internal projects using recognised frameworks
+  - Handle data analysis and produce actionable reports
+  - Support senior stakeholders with strategic decisions
+  - Build strong professional communication skills
+  - Apply financial management principles in daily work
+employerBenefits:
+  - Reduce administrative overheads within 6 months
+  - Develop internal talent pipeline for management roles
+  - Government funded. Zero cost in most cases.
+  - BrightPeak handles all compliance and tracking
+modules:
+  - title: "Introduction to Business Administration"
+    slug: intro-to-business-admin
+    duration: 45 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: An overview of the business administration landscape, your role, and how to set yourself up for success in this apprenticeship.
+    resources:
+      - "Business Admin Handbook (PDF)"
+      - "Your Learning Plan Template"
+      - "Glossary of Key Terms"
+  - title: "Communication and Stakeholder Management"
+    slug: communication-stakeholders
+    duration: 60 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: How to communicate professionally across email, meetings, and reports. Managing up, across, and with external stakeholders.
+    resources:
+      - "Stakeholder Map Template"
+      - "Email Tone Guide"
+      - "Meeting Agenda Framework"
+  - title: "Business Process Improvement"
+    slug: process-improvement
+    duration: 55 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Identify inefficiencies, map current state processes, and propose improvements using lean principles and data.
+    resources:
+      - "Process Mapping Template"
+      - "Lean Basics Cheat Sheet"
+  - title: "Project Coordination Fundamentals"
+    slug: project-coordination
+    duration: 50 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Plan and track small to medium projects. Gantt charts, risk registers, and stakeholder updates.
+    resources:
+      - "Project Plan Template"
+      - "Risk Register Template"
+      - "Status Update Framework"

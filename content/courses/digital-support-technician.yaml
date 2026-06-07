@@ -1,0 +1,45 @@
+title: Digital Support Technician
+level: "3"
+sector: tech
+duration: 12 months
+tagline: Be the person every organisation depends on for tech
+description: Gain the skills to support users, maintain systems, and drive digital adoption across any business. From first-line IT support to building internal tooling. This programme builds versatile digital technicians.
+heroImage: https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80
+featured: true
+whatYouLearn:
+  - Diagnose and resolve first and second-line IT issues
+  - Support cloud platforms including Microsoft 365 and Google Workspace
+  - Train non-technical staff on digital tools
+  - Manage hardware, software, and network assets
+  - Document processes and build user guides
+  - Apply data protection best practices daily
+employerBenefits:
+  - Fastest-to-qualify tech programme at just 12 months
+  - Immediately productive. Skills applied from week one.
+  - Reduces IT support costs and third-party helpdesk reliance
+  - Build internal digital champions across your organisation
+modules:
+  - title: "Digital Toolkit and Modern Workplace"
+    slug: digital-toolkit
+    duration: 40 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Overview of modern workplace tools including Microsoft 365, cloud storage, collaboration platforms, and productivity software.
+    resources:
+      - "Microsoft 365 Admin Cheat Sheet"
+      - "Digital Tool Comparison Matrix"
+  - title: "First-Line IT Support"
+    slug: first-line-support
+    duration: 55 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Ticketing systems, escalation paths, and how to diagnose and resolve the most common user issues efficiently.
+    resources:
+      - "Triage Decision Tree"
+      - "Common Error Codes Reference"
+  - title: "Hardware and Network Fundamentals"
+    slug: hardware-network
+    duration: 50 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: How computers, routers, switches, and cabling work together. Basic network configuration and troubleshooting.
+    resources:
+      - "CompTIA A+ Quick Reference"
+      - "Network Topology Diagrams"

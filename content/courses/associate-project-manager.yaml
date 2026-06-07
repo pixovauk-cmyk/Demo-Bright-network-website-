@@ -1,0 +1,54 @@
+title: Associate Project Manager
+level: "4"
+sector: business
+duration: 24 months
+tagline: Lead projects that deliver. Every time.
+description: Develop full lifecycle project management skills aligned to PMQ and PRINCE2 principles. Manage risk, budgets, teams, and stakeholders across real-world projects within your organisation throughout the programme.
+heroImage: https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=1200&q=80
+featured: true
+whatYouLearn:
+  - Apply PMQ and PRINCE2 methodologies to live projects
+  - Manage project scope, budget, timeline, and risk
+  - Lead and motivate cross-functional project teams
+  - Produce professional project documentation and reports
+  - Engage and influence senior stakeholders
+  - Deliver projects using both waterfall and agile approaches
+employerBenefits:
+  - PMQ/PRINCE2 exam costs covered by government funding at Level 4
+  - Develop internal project managers without expensive external training
+  - Apprentices deliver real projects during the programme. Immediate ROI.
+  - Structured governance and reporting skills embedded from month one
+modules:
+  - title: "Project Management Fundamentals"
+    slug: pm-fundamentals
+    duration: 70 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: What is a project? Lifecycle stages, key roles, governance structures, and the difference between PRINCE2 and Agile approaches.
+    resources:
+      - "PRINCE2 Foundation Cheat Sheet"
+      - "Project Lifecycle Diagram"
+  - title: "Scope, Schedule, and Budget Management"
+    slug: scope-schedule-budget
+    duration: 80 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Defining scope, building work breakdown structures, creating realistic schedules, and tracking expenditure against budget.
+    resources:
+      - "WBS Template"
+      - "Gantt Chart Template"
+      - "Budget Tracker Spreadsheet"
+  - title: "Risk and Stakeholder Management"
+    slug: risk-stakeholders
+    duration: 65 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Identifying, assessing, and mitigating project risks. Stakeholder mapping, communication planning, and managing expectations.
+    resources:
+      - "Risk Register Template"
+      - "Stakeholder Matrix Template"
+  - title: "Agile Delivery and Scrum"
+    slug: agile-scrum
+    duration: 75 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Agile values, Scrum ceremonies, sprint planning, retrospectives, and how to apply agile within a traditional organisation.
+    resources:
+      - "Scrum Reference Card"
+      - "Sprint Planning Template"

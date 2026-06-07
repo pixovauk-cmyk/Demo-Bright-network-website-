@@ -1,0 +1,44 @@
+title: Customer Service Specialist
+level: "3"
+sector: service
+duration: 15 months
+tagline: Lead service excellence and become the go-to expert
+description: For those who want to go beyond frontline service and develop expertise in service strategy, team support, and complex case management. Suitable for team leaders and senior customer-facing roles.
+heroImage: https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80
+featured: false
+whatYouLearn:
+  - Lead by example and mentor junior customer service staff
+  - Manage complex escalations and high-value customer relationships
+  - Analyse customer feedback data to drive service improvements
+  - Design and implement service processes and standards
+  - Handle vulnerable customers with empathy and compliance
+  - Present service performance reports to management
+employerBenefits:
+  - Develop internal talent into senior service roles
+  - Improve NPS and CSAT scores with expert-level service
+  - Government funded — no cost to most employers
+  - Ideal for contact centres, financial services, and hospitality
+modules:
+  - title: "Service Leadership Fundamentals"
+    slug: service-leadership
+    duration: 50 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: The mindset, skills, and responsibilities of a customer service specialist and informal team leader.
+    resources:
+      - "Leadership in Service Guide"
+  - title: "Complex Case Management"
+    slug: complex-case-management
+    duration: 55 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Managing escalations, regulatory requirements, and sensitive situations with professionalism and empathy.
+    resources:
+      - "Escalation Decision Tree"
+      - "Vulnerable Customer Policy Template"
+  - title: "Service Data and Improvement"
+    slug: service-data-improvement
+    duration: 45 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Reading and acting on CSAT, NPS, and complaint data to make evidence-based service improvements.
+    resources:
+      - "KPI Dashboard Template"
+      - "Root Cause Analysis Framework"

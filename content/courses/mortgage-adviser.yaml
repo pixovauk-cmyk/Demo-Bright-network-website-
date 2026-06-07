@@ -1,0 +1,45 @@
+title: Mortgage Adviser
+level: "3"
+sector: finance
+duration: 17 months
+tagline: Become CeMAP qualified. Advise with authority.
+description: The gold standard entry into mortgage and financial services advice. Combine regulated advice skills with the internationally recognised CeMAP qualification, fully funded by the apprenticeship levy.
+heroImage: https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1200&q=80
+featured: false
+whatYouLearn:
+  - Achieve the full Certificate in Mortgage Advice & Practice (CeMAP)
+  - Advise clients on mortgage products and suitability
+  - Conduct FCA-compliant fact-finds and affordability assessments
+  - Navigate the residential and buy-to-let mortgage markets
+  - Handle complex cases including adverse credit and self-employed
+  - Build and manage a compliant client portfolio
+employerBenefits:
+  - CeMAP qualification cost fully covered by government funding
+  - Qualified advisers generating revenue within 17 months
+  - FCA-compliant training embedded from day one
+  - Structured development reduces supervision burden on senior staff
+modules:
+  - title: "Introduction to Financial Services Regulation"
+    slug: financial-regulation-intro
+    duration: 60 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: The FCA regulatory framework, conduct rules, and what it means to operate within a regulated environment as a mortgage adviser.
+    resources:
+      - "FCA Consumer Duty Summary"
+      - "Conduct Rules Reference Card"
+  - title: "Mortgage Products and the Market"
+    slug: mortgage-products
+    duration: 75 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Residential, buy-to-let, shared ownership, and specialist products. How lenders assess risk and set rates.
+    resources:
+      - "Product Comparison Framework"
+      - "Lender Criteria Quick Reference"
+  - title: "Client Advice and Fact-Find Process"
+    slug: client-advice
+    duration: 65 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: How to conduct a compliant mortgage fact-find, assess affordability, and present suitable product recommendations.
+    resources:
+      - "Fact-Find Template"
+      - "Suitability Letter Framework"

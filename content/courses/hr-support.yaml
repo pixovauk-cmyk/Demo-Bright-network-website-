@@ -1,0 +1,54 @@
+title: HR Support
+level: "3"
+sector: business
+duration: 18 months
+tagline: The people professional every growing business needs
+description: Develop the knowledge and skills to support an HR function — from recruitment and onboarding to employee relations, payroll administration, and policy implementation. Designed for HR assistants, coordinators, and administrators.
+heroImage: https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1200&q=80
+featured: false
+whatYouLearn:
+  - Support end-to-end recruitment and onboarding processes
+  - Understand employment law and how it applies day-to-day
+  - Manage employee records, absence, and performance documentation
+  - Handle disciplinary and grievance procedures with confidence
+  - Support payroll processing and benefits administration
+  - Advise managers on people policies and HR best practice
+employerBenefits:
+  - Build HR capability without the senior-hire cost
+  - Ensure employment law compliance across the business
+  - 100% government funded — no cost to most employers
+  - Ideal for SMEs building their first internal HR team
+modules:
+  - title: "HR in the Modern Organisation"
+    slug: hr-modern-organisation
+    duration: 45 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: The purpose and scope of HR, key functions, and how HR supports business strategy and performance.
+    resources:
+      - "HR Function Overview"
+      - "People Strategy Framework"
+  - title: "Recruitment and Onboarding"
+    slug: recruitment-onboarding
+    duration: 55 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Planning and supporting recruitment campaigns, shortlisting, interview coordination, and effective onboarding.
+    resources:
+      - "Job Description Template"
+      - "Onboarding Checklist"
+      - "Interview Question Bank"
+  - title: "Employment Law Essentials"
+    slug: employment-law-essentials
+    duration: 60 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Key legislation every HR professional must understand — contracts, rights, discrimination, and dismissal.
+    resources:
+      - "Employment Law Reference Card"
+      - "Protected Characteristics Summary"
+  - title: "Employee Relations and Wellbeing"
+    slug: employee-relations
+    duration: 50 min
+    videoUrl: https://www.youtube.com/embed/dQw4w9WgXcQ
+    description: Managing absence, disciplinaries, grievances, and supporting employee wellbeing programmes.
+    resources:
+      - "Disciplinary Procedure Template"
+      - "Return to Work Interview Guide"
