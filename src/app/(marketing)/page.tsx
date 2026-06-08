@@ -13,6 +13,47 @@ const homeQuery = `
     heroTrustLine1
     heroTrustLine2
     heroTrustLine3
+    heroImage1
+    heroImage2
+    stats {
+      value
+      suffix
+      label
+    }
+    employers
+    whyHeadline
+    whySubtext
+    whyImage1
+    whyImage2
+    features {
+      title
+      desc
+    }
+    howHeadline
+    howImage
+    steps {
+      title
+      desc
+    }
+    insightsHeadline
+    insights {
+      tag
+      title
+      date
+      read
+      img
+      href
+    }
+    dualHeadline
+    dualSubtext
+    employerCardHeadline
+    employerCardSubtext
+    employerCardImage
+    employerBullets
+    learnerCardHeadline
+    learnerCardSubtext
+    learnerCardImage
+    learnerBullets
     ctaHeadline
     ctaSubtext
     ctaPhone

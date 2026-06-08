@@ -39,7 +39,7 @@
   }
 
   body {
-    background-color: #F4F6FF;
+    background-color: #ffffff;
     color: #0F172A;
     font-family: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
   }
@@ -50,7 +50,7 @@
   }
 
   ::-webkit-scrollbar { width: 5px; height: 5px; }
-  ::-webkit-scrollbar-track { background: #F4F6FF; }
+  ::-webkit-scrollbar-track { background: #F8FAFC; }
   ::-webkit-scrollbar-thumb { background: #BAE6FD; border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: #0284C7; }
 }

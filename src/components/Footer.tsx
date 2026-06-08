@@ -34,6 +34,13 @@ const links = {
     { label: "Off-the-Job",      href: "https://apps.brightpeakgroup.com/off-the-job.html" },
     { label: "Success Stories",  href: "/#testimonials" },
   ],
+  Platform: [
+    { label: "Learner Portal",   href: "/learner" },
+    { label: "Employer Portal",  href: "/employer" },
+    { label: "Admin Portal",     href: "/admin-portal" },
+    { label: "Content CMS",      href: "/admin/index.html" },
+    { label: "Sign In",          href: "/auth/login" },
+  ],
 };
 
 export default function Footer() {
@@ -50,10 +57,10 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#F4F6FF] border-t border-slate-200">
+    <footer className="bg-slate-50 border-t border-slate-200">
       {/* Main */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-10">
 
           {/* Brand col — 2 cols wide */}
           <div className="lg:col-span-2">
@@ -67,8 +74,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed max-w-xs mb-5">
-              Government funded apprenticeships tailored to your business.
-              Infrastructure of a large provider. Care of a small one.
+              The UK's leading government-funded apprenticeship platform. Three Ofsted Good providers. One team behind you.
             </p>
 
             {/* Contact */}
@@ -123,7 +129,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Link cols */}
+          {/* Link cols — now 4 cols so span changes */}
           {Object.entries(links).map(([section, items]) => (
             <div key={section} className="lg:col-span-1">
               <h3 className="text-[#040B18] font-bold text-xs mb-5 uppercase tracking-widest">{section}</h3>
@@ -146,7 +152,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <h3 className="text-[#040B18] font-bold text-xs mb-5 uppercase tracking-widest">Subscribe</h3>
             <p className="text-slate-500 text-xs leading-relaxed mb-4">
-              Policy updates, funding news, and sector insights. Monthly, no spam.
+              Funding news, policy updates, and sector insight. Once a month. Nothing you didn&apos;t ask for.
             </p>
 
             {subscribed ? (

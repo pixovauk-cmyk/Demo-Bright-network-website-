@@ -14,12 +14,6 @@ const avatarMap: Record<string, string> = {
   "anthony-acorn-insurance": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
 };
 
-const accentMap: Record<string, { bg: string; text: string; dot: string }> = {
-  "paul-co-op-bank":         { bg: "#DBEAFE", text: "#1D4ED8", dot: "bg-blue-400" },
-  "heather-leeds-building":  { bg: "#EDE9FE", text: "#7C3AED", dot: "bg-violet-400" },
-  "anthony-acorn-insurance": { bg: "#D1FAE5", text: "#065F46", dot: "bg-emerald-400" },
-};
-
 export default function TestimonialsSection({ testimonials }: Props) {
   if (!testimonials.length) return null;
 
@@ -29,9 +23,9 @@ export default function TestimonialsSection({ testimonials }: Props) {
 
         {/* Header */}
         <div className="text-center mb-10">
-          <span className="text-sky-600 text-sm font-semibold uppercase tracking-widest">Success Stories</span>
+          <span className="text-sky-600 text-sm font-semibold uppercase tracking-widest">What happened after they said yes</span>
           <h2 className="mt-3 font-display text-4xl md:text-5xl font-black text-[#040B18]">
-            What employers say
+            Don&apos;t take our word for it. Take theirs.
           </h2>
           <p className="mt-3 text-slate-500 text-lg max-w-lg mx-auto">
             Real outcomes from real organisations. Not marketing speak.
@@ -41,17 +35,13 @@ export default function TestimonialsSection({ testimonials }: Props) {
         {/* Cards — carousel mobile, 3-col grid desktop */}
         <div className="flex gap-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-4 px-4 pb-4 md:grid md:grid-cols-3 md:overflow-visible md:mx-0 md:px-0 md:pb-0">
           {testimonials.map((t) => {
-            const img    = avatarMap[t.slug];
-            const accent = accentMap[t.slug] ?? { bg: "#E0F2FE", text: "#0284C7", dot: "bg-sky-400" };
+            const img = avatarMap[t.slug];
             return (
               <div
                 key={t.slug}
                 className="snap-start flex-shrink-0 w-[82vw] sm:w-[60vw] md:w-auto"
               >
-                <div
-                  className="rounded-3xl p-7 flex flex-col gap-5 border-2 border-[#040B18]/10 hover:border-[#040B18]/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200 h-full"
-                  style={{ backgroundColor: accent.bg }}
-                >
+                <div className="rounded-3xl p-7 flex flex-col gap-5 bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200 h-full">
                   {/* Stars */}
                   <div className="flex gap-1">
                     {[1,2,3,4,5].map((i) => (
@@ -66,23 +56,20 @@ export default function TestimonialsSection({ testimonials }: Props) {
 
                   {/* Result pill */}
                   {t.result && (
-                    <div className="inline-flex self-start items-center gap-2 rounded-xl px-3 py-2 bg-white/60 border border-white/80">
-                      <div className={`w-2 h-2 rounded-full flex-shrink-0 ${accent.dot}`} />
-                      <span className="text-xs font-bold" style={{ color: accent.text }}>{t.result}</span>
+                    <div className="inline-flex self-start items-center gap-2 rounded-xl px-3 py-2 bg-sky-50 border border-sky-100">
+                      <div className="w-2 h-2 rounded-full flex-shrink-0 bg-sky-400" />
+                      <span className="text-xs font-bold text-sky-700">{t.result}</span>
                     </div>
                   )}
 
                   {/* Attribution */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-[#040B18]/8">
+                  <div className="flex items-center gap-3 pt-4 border-t border-slate-200">
                     {img ? (
                       <div className="w-11 h-11 rounded-full overflow-hidden flex-shrink-0 shadow-sm border-2 border-white">
                         <Image src={img} alt={t.name} width={44} height={44} className="object-cover w-full h-full" />
                       </div>
                     ) : (
-                      <div
-                        className="w-11 h-11 rounded-full flex items-center justify-center font-black text-sm flex-shrink-0 border-2 border-white"
-                        style={{ backgroundColor: accent.bg, color: accent.text }}
-                      >
+                      <div className="w-11 h-11 rounded-full flex items-center justify-center font-black text-sm flex-shrink-0 bg-sky-100 text-sky-700 border-2 border-white">
                         {t.name[0]}
                       </div>
                     )}

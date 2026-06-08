@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,89 +35,74 @@ export default function HeroSection({
   trustLine2,
   trustLine3,
   heroImage1,
-  heroImage2,
   tinaDocument,
 }: HeroProps = {}) {
-  const [email, setEmail] = useState("");
-  const [sent, setSent] = useState(false);
-
-  function handleSubmit(e: { preventDefault(): void }) {
-    e.preventDefault();
-    if (email.trim()) {
-      setSent(true);
-      setTimeout(() => setSent(false), 4500);
-    }
-  }
 
   return (
     <section className="relative bg-white overflow-hidden pt-[52px]">
 
       {/* Announcement strip */}
       <div
-        className="py-2.5 text-center text-xs font-semibold text-white/90 tracking-wide"
-        style={{ background: "linear-gradient(90deg, #0284C7 0%, #0369A1 100%)" }}
+        className="py-2.5 text-center text-xs font-semibold text-white/80 tracking-wide"
+        style={{ background: "linear-gradient(90deg, #0F172A 0%, #1E293B 100%)" }}
         data-tina-field={tinaDocument ? tinaField(tinaDocument, "announcementText") : undefined}
       >
-        {announcementText ?? <><span className="font-bold">Ofsted Good Provider. Est. 1995.</span>{" "}Government funded. No cost to most employers.</>}{" "}
-        <Link href="/#cta" className="underline underline-offset-2 hover:text-white transition-colors">
-          Book a free call
+        <span className="text-amber-400 font-black">●</span>{" "}
+        {announcementText ?? <>All three providers rated <strong className="text-white">Ofsted Good</strong> · <strong className="text-white">11,000+</strong> learners supported annually · 100% government funded</>}{" "}
+        <Link href="/#cta" className="text-sky-400 underline underline-offset-2 hover:text-sky-300 transition-colors ml-2">
+          Book free call →
         </Link>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14 lg:pt-16 lg:pb-20">
-        <div className="grid lg:grid-cols-12 gap-10 xl:gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-0">
+        <div className="grid lg:grid-cols-12 gap-10 xl:gap-16 items-end" style={{ minHeight: "82vh" }}>
 
           {/* ── Left col ── */}
-          <div className="lg:col-span-6 space-y-7">
+          <div className="lg:col-span-6 space-y-7 pb-16">
 
             <motion.div {...fadeUp(0.05)}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-sky-50 border border-sky-100 rounded-full">
-                <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
-                <span className="text-[11px] font-bold text-sky-700 uppercase tracking-wider">
-                  Hiring? We handle everything.
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-amber-50 border border-amber-200 rounded-full">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                <span className="text-[11px] font-bold text-amber-700 uppercase tracking-wider">
+                  September cohort filling fast — spaces are limited
                 </span>
               </div>
             </motion.div>
 
-            {/* Headline with highlighted word */}
+            {/* Headline */}
             <motion.h1
               {...fadeUp(0.12)}
-              className="font-display text-5xl sm:text-6xl lg:text-[3.25rem] xl:text-[3.75rem] font-extrabold leading-[1.1] tracking-tight text-[#040B18]"
+              className="font-display text-5xl sm:text-6xl lg:text-[3.5rem] xl:text-[4rem] font-black leading-[1.05] tracking-tight text-slate-900"
               data-tina-field={tinaDocument ? tinaField(tinaDocument, "heroHeadline") : undefined}
             >
-              {heroHeadline ?? "Build your team."}
-              <br />
-              The government
-              <br />
+              {heroHeadline ?? "Start your career."}<br />
+              The government<br />
               <span
-                className="text-white inline-block"
                 style={{
                   background: "linear-gradient(135deg, #0EA5E9 0%, #0369A1 100%)",
-                  padding: "2px 14px 10px",
-                  borderRadius: "10px",
-                  transform: "rotate(1.5deg)",
-                  display: "inline-block",
-                  marginTop: "6px",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
                 }}
               >
-                pays.
+                picks up the bill.
               </span>
             </motion.h1>
 
             <motion.p
               {...fadeUp(0.2)}
-              className="text-xl text-slate-500 leading-relaxed max-w-lg font-medium"
+              className="text-xl text-slate-500 leading-relaxed max-w-lg"
               data-tina-field={tinaDocument ? tinaField(tinaDocument, "heroSubtext") : undefined}
             >
-              {heroSubtext ?? <>We handle everything — recruitment, training, qualification.{" "}<strong className="text-[#040B18]">You get the talent. Zero cost.</strong></>}
+              {heroSubtext ?? <>Join <strong className="text-slate-800">11,000+ learners</strong> on the UK&apos;s leading government-funded apprenticeship platform. Real job. Real wage. Real qualification. <strong className="text-slate-800">Zero fees.</strong></>}
             </motion.p>
 
-            {/* Compact trust row */}
+            {/* Trust row */}
             <motion.div {...fadeUp(0.26)} className="flex items-center gap-5 flex-wrap">
               {([
-                { val: trustLine1 ?? "Named account manager", field: "heroTrustLine1" },
-                { val: trustLine2 ?? "Ofsted Good",           field: "heroTrustLine2" },
-                { val: trustLine3 ?? "100% funded",           field: "heroTrustLine3" },
+                { val: trustLine1 ?? "Ofsted Good — independently verified", field: "heroTrustLine1" },
+                { val: trustLine2 ?? "85% qualification success rate", field: "heroTrustLine2" },
+                { val: trustLine3 ?? "100% government funded — zero fees", field: "heroTrustLine3" },
               ] as const).map(({ val, field }, i) => (
                 <React.Fragment key={field}>
                   {i > 0 && <span className="w-1 h-1 rounded-full bg-slate-300" />}
@@ -132,110 +117,75 @@ export default function HeroSection({
               ))}
             </motion.div>
 
-            {/* Email form */}
-            <motion.div {...fadeUp(0.34)} className="space-y-2.5">
-              {sent ? (
-                <div className="flex items-center gap-2.5 text-sm text-emerald-700 font-semibold bg-emerald-50 border border-emerald-200 px-5 py-3.5 rounded-full max-w-md">
-                  <CheckCircle className="w-4 h-4 flex-shrink-0" />
-                  Done! A consultant will reach out within one working day.
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md">
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter your work email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 px-5 py-3.5 text-sm border-2 border-slate-200 rounded-full focus:outline-none focus:border-sky-400 placeholder-slate-400 font-medium text-[#040B18] bg-white transition-colors"
-                  />
-                  <button type="submit" className="btn-primary whitespace-nowrap text-sm py-3.5">
-                    Book Free Call <ArrowRight className="w-4 h-4" />
-                  </button>
-                </form>
-              )}
-              <p className="text-xs text-slate-400 font-medium ml-1">
-                Free 30 min discovery call. No commitment.
-              </p>
+            {/* Two CTAs */}
+            <motion.div {...fadeUp(0.34)} className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/courses"
+                className="inline-flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg text-base"
+              >
+                Find my apprenticeship
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/#cta"
+                className="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-8 py-4 rounded-full transition-all text-base"
+              >
+                I&apos;m an employer — show me how it works
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </motion.div>
+
+            <motion.p {...fadeUp(0.4)} className="text-xs text-slate-400 font-medium">
+              No fees. No obligation. We call back within one working day.
+            </motion.p>
 
           </div>
 
-          {/* ── Right col — tilted card composition ── */}
+          {/* ── Right col — full-height image ── */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.25, ease }}
-            className="lg:col-span-6 hidden lg:flex justify-center items-center py-8"
+            className="lg:col-span-6 hidden lg:flex items-end relative"
+            style={{ height: 600 }}
           >
-            <div className="relative" style={{ width: 420, height: 480 }}>
+            <div className="absolute inset-0 rounded-tl-3xl overflow-hidden">
+              <Image
+                src={heroImage1 ?? "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1000&q=85"}
+                alt="Apprentices in training session"
+                fill className="object-cover" priority sizes="50vw"
+                data-tina-field={tinaDocument ? tinaField(tinaDocument, "heroImage1") : undefined}
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 45%, rgba(15,23,42,0.55) 100%)" }} />
+            </div>
 
-              {/* Decorative dot — top right */}
-              <div className="absolute rounded-full pointer-events-none" style={{ width: 14, height: 14, background: "#FB923C", top: 10, right: 40 }} aria-hidden />
-              {/* Decorative dot — bottom left */}
-              <div className="absolute rounded-full pointer-events-none" style={{ width: 10, height: 10, background: "#34D399", bottom: 30, left: 10 }} aria-hidden />
+            {/* Floating stat — outside left */}
+            <div className="absolute -left-6 top-20 bg-white rounded-2xl shadow-xl border border-slate-100 px-5 py-4 z-10 animate-float">
+              <div className="text-3xl font-black text-slate-900 leading-none">11,000+</div>
+              <div className="text-xs text-slate-500 font-semibold mt-0.5">People started their career with us this year</div>
+            </div>
 
-              {/* ── Main card — tilted left ── */}
-              <div
-                className="absolute overflow-hidden shadow-2xl"
-                style={{
-                  width: 340, height: 420,
-                  top: 20, left: 0,
-                  borderRadius: 28,
-                  transform: "rotate(-3deg)",
-                  border: "5px solid white",
-                }}
-              >
-                <Image
-                  src={heroImage1 ?? "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=85"}
-                  alt="Team training session"
-                  fill className="object-cover" priority sizes="340px"
-                  data-tina-field={tinaDocument ? tinaField(tinaDocument, "heroImage1") : undefined}
-                />
-                {/* Subtle dark overlay at bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#040B18]/30 via-transparent to-transparent" />
+            {/* Ofsted badge — top right */}
+            <div
+              className="absolute top-16 right-6 bg-white rounded-2xl shadow-xl border border-slate-100 px-5 py-4 z-10 animate-float"
+              style={{ animationDelay: "1.2s" }}
+            >
+              <div className="flex gap-0.5 mb-1">
+                {[1,2,3,4,5].map((i) => <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />)}
               </div>
+              <div className="font-black text-slate-900 text-sm">Ofsted Good</div>
+              <div className="text-[10px] text-slate-400 font-semibold mt-0.5">Delivering since 1995</div>
+            </div>
 
-              {/* ── Second card — bottom-right, counter-tilted ── */}
-              <div
-                className="absolute overflow-hidden shadow-xl z-10"
-                style={{
-                  width: 168, height: 188,
-                  bottom: 0, right: 0,
-                  borderRadius: 20,
-                  transform: "rotate(2.5deg)",
-                  border: "5px solid white",
-                }}
-              >
-                <Image
-                  src={heroImage2 ?? "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=350&q=85"}
-                  alt="Apprentice professional"
-                  fill className="object-cover object-top" sizes="168px"
-                  data-tina-field={tinaDocument ? tinaField(tinaDocument, "heroImage2") : undefined}
-                />
-              </div>
-
-              {/* Floating badge — top right, outside main card */}
-              <div
-                className="absolute bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3 z-20 animate-float"
-                style={{ top: 30, right: 0 }}
-              >
-                <div className="flex gap-0.5 mb-1">
-                  {[1,2,3,4,5].map((i) => <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />)}
+            {/* Bottom enrolment card */}
+            <div className="absolute bottom-8 left-6 right-6 bg-white/90 backdrop-blur-md rounded-2xl p-4 z-10 border border-white/60 shadow-xl">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <div className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Places available now</div>
+                  <div className="font-bold text-slate-900 text-sm mt-0.5">Business Administrator · Level 3 — Fully Funded</div>
                 </div>
-                <div className="text-[12px] font-black text-[#040B18]">Ofsted Good</div>
-                <div className="text-[10px] text-slate-400 font-semibold mt-0.5">Est. 1995</div>
+                <div className="bg-sky-600 text-white text-xs font-bold px-4 py-2 rounded-full whitespace-nowrap flex-shrink-0">Apply today</div>
               </div>
-
-              {/* Floating badge — left, mid-card */}
-              <div
-                className="absolute bg-white rounded-2xl shadow-xl border border-slate-100 px-4 py-3 z-20 animate-float"
-                style={{ bottom: 110, left: 0, animationDelay: "0.8s" }}
-              >
-                <div className="text-sky-600 font-black text-xl leading-none">85%</div>
-                <div className="text-[11px] text-slate-500 font-semibold mt-1">Success Rate</div>
-              </div>
-
             </div>
           </motion.div>
 

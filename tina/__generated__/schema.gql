@@ -162,6 +162,31 @@ type CourseConnection implements Connection {
   edges: [CourseConnectionEdges]
 }
 
+type HomeStats {
+  value: Float
+  suffix: String
+  label: String
+}
+
+type HomeFeatures {
+  title: String
+  desc: String
+}
+
+type HomeSteps {
+  title: String
+  desc: String
+}
+
+type HomeInsights {
+  tag: String
+  title: String
+  date: String
+  read: String
+  img: String
+  href: String
+}
+
 type Home implements Node & Document {
   announcementText: String
   heroHeadline: String
@@ -169,6 +194,30 @@ type Home implements Node & Document {
   heroTrustLine1: String
   heroTrustLine2: String
   heroTrustLine3: String
+  heroImage1: String
+  heroImage2: String
+  stats: [HomeStats]
+  employers: [String]
+  whyHeadline: String
+  whySubtext: String
+  whyImage1: String
+  whyImage2: String
+  features: [HomeFeatures]
+  howHeadline: String
+  howImage: String
+  steps: [HomeSteps]
+  insightsHeadline: String
+  insights: [HomeInsights]
+  dualHeadline: String
+  dualSubtext: String
+  employerCardHeadline: String
+  employerCardSubtext: String
+  employerCardImage: String
+  employerBullets: [String]
+  learnerCardHeadline: String
+  learnerCardSubtext: String
+  learnerCardImage: String
+  learnerBullets: [String]
   ctaHeadline: String
   ctaSubtext: String
   ctaPhone: String
@@ -178,6 +227,41 @@ type Home implements Node & Document {
   _values: JSON!
 }
 
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
+input HomeStatsFilter {
+  value: NumberFilter
+  suffix: StringFilter
+  label: StringFilter
+}
+
+input HomeFeaturesFilter {
+  title: StringFilter
+  desc: StringFilter
+}
+
+input HomeStepsFilter {
+  title: StringFilter
+  desc: StringFilter
+}
+
+input HomeInsightsFilter {
+  tag: StringFilter
+  title: StringFilter
+  date: StringFilter
+  read: StringFilter
+  img: StringFilter
+  href: StringFilter
+}
+
 input HomeFilter {
   announcementText: StringFilter
   heroHeadline: StringFilter
@@ -185,6 +269,30 @@ input HomeFilter {
   heroTrustLine1: StringFilter
   heroTrustLine2: StringFilter
   heroTrustLine3: StringFilter
+  heroImage1: StringFilter
+  heroImage2: StringFilter
+  stats: HomeStatsFilter
+  employers: StringFilter
+  whyHeadline: StringFilter
+  whySubtext: StringFilter
+  whyImage1: StringFilter
+  whyImage2: StringFilter
+  features: HomeFeaturesFilter
+  howHeadline: StringFilter
+  howImage: StringFilter
+  steps: HomeStepsFilter
+  insightsHeadline: StringFilter
+  insights: HomeInsightsFilter
+  dualHeadline: StringFilter
+  dualSubtext: StringFilter
+  employerCardHeadline: StringFilter
+  employerCardSubtext: StringFilter
+  employerCardImage: StringFilter
+  employerBullets: StringFilter
+  learnerCardHeadline: StringFilter
+  learnerCardSubtext: StringFilter
+  learnerCardImage: StringFilter
+  learnerBullets: StringFilter
   ctaHeadline: StringFilter
   ctaSubtext: StringFilter
   ctaPhone: StringFilter
@@ -248,6 +356,31 @@ input CourseMutation {
   modules: [CourseModulesMutation]
 }
 
+input HomeStatsMutation {
+  value: Float
+  suffix: String
+  label: String
+}
+
+input HomeFeaturesMutation {
+  title: String
+  desc: String
+}
+
+input HomeStepsMutation {
+  title: String
+  desc: String
+}
+
+input HomeInsightsMutation {
+  tag: String
+  title: String
+  date: String
+  read: String
+  img: String
+  href: String
+}
+
 input HomeMutation {
   announcementText: String
   heroHeadline: String
@@ -255,6 +388,30 @@ input HomeMutation {
   heroTrustLine1: String
   heroTrustLine2: String
   heroTrustLine3: String
+  heroImage1: String
+  heroImage2: String
+  stats: [HomeStatsMutation]
+  employers: [String]
+  whyHeadline: String
+  whySubtext: String
+  whyImage1: String
+  whyImage2: String
+  features: [HomeFeaturesMutation]
+  howHeadline: String
+  howImage: String
+  steps: [HomeStepsMutation]
+  insightsHeadline: String
+  insights: [HomeInsightsMutation]
+  dualHeadline: String
+  dualSubtext: String
+  employerCardHeadline: String
+  employerCardSubtext: String
+  employerCardImage: String
+  employerBullets: [String]
+  learnerCardHeadline: String
+  learnerCardSubtext: String
+  learnerCardImage: String
+  learnerBullets: [String]
   ctaHeadline: String
   ctaSubtext: String
   ctaPhone: String

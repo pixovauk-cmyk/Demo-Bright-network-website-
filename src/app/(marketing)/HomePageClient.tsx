@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Briefcase, Monitor, BarChart3, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useTina, tinaField } from "tinacms/dist/react";
 import HeroSection from "@/components/HeroSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -39,42 +39,6 @@ const CheckIcon = () => (
 );
 
 const featureIcons = [BoltIcon, PersonIcon, SparklesIcon, TrendingIcon];
-const featureStyles = [
-  { bg: "#DBEAFE", iconColor: "text-sky-600" },
-  { bg: "#D1FAE5", iconColor: "text-emerald-600" },
-  { bg: "#FEF3C7", iconColor: "text-amber-600" },
-  { bg: "#FCE7F3", iconColor: "text-rose-600" },
-];
-
-const statIcons = [
-  <svg key="clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>,
-  <svg key="trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>,
-  <svg key="book" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
-  <svg key="users" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
-];
-const statStyles = [
-  { bg: "#DBEAFE", iconColor: "text-sky-600" },
-  { bg: "#D1FAE5", iconColor: "text-emerald-600" },
-  { bg: "#EDE9FE", iconColor: "text-violet-600" },
-  { bg: "#FEF3C7", iconColor: "text-amber-600" },
-];
-
-const categories = [
-  { name: "Business & Admin", href: "/courses?sector=business", bg: "#DBEAFE", Icon: Briefcase, desc: "Business Administrator, Project Manager, Business Analyst, HR Support" },
-  { name: "Digital & Tech",   href: "/courses?sector=tech",     bg: "#EDE9FE", Icon: Monitor,   desc: "Cyber Security, Network Engineer, Digital Support, IT Solutions" },
-  { name: "Finance & FS",     href: "/courses?sector=finance",  bg: "#D1FAE5", Icon: BarChart3,  desc: "Financial Services, Mortgage Advice, Regulatory Compliance" },
-  { name: "Customer Service", href: "/courses?sector=service",  bg: "#FCE7F3", Icon: Users,      desc: "Customer Service Practitioner & Specialist — Levels 2 & 3" },
-];
-
-const team = [
-  { name: "Alex Glasner",   role: "Chief Executive Officer",       bio: "Leading BrightPeak Group's national apprenticeship strategy. 20+ years driving growth across skills and employment sectors.",                                   img: "/team/ajg_photo.jpg",  bg: "#DBEAFE" },
-  { name: "Anne Wright",    role: "Chief Executive Officer",       bio: "Experienced education leader helping shape BrightPeak Group's strategic direction across its portfolio of Ofsted Good training providers.",                       img: "/team/aw_photo.jpg",   bg: "#EDE9FE" },
-  { name: "Simon Corbett",  role: "Chief Revenue Officer",         bio: "Founder of Orangebox Training. 23 years in law enforcement before building one of the North East's most dynamic training providers.",                             img: "/team/sc_photo2.jpg",  bg: "#D1FAE5" },
-  { name: "Kylee Bates",    role: "Chief Operating Officer",       bio: "Driving operational excellence and quality across three Ofsted Good brands. Expert in scalable delivery models and end-to-end programme management.",             img: "/team/kb_photo.jpg",   bg: "#FCE7F3" },
-  { name: "Kirstie Wright", role: "Group Director of Excellence",  bio: "20 years in education, formerly CEO of WS Training. Specialist in Ofsted quality frameworks and learner outcomes.",                                               img: "/team/kw_photo.jpg",   bg: "#FEF3C7" },
-  { name: "George Boylin",  role: "Chief Financial Officer",       bio: "Deep experience in finance across skills and employment sectors. Ensures BrightPeak Group's financial strategy supports sustainable, high-quality delivery.",      img: "/team/gb_photo.jpg",   bg: "#DCFCE7" },
-  { name: "Neda Nazariyan", role: "Group People & Culture Lead",   bio: "Championing a values-driven culture across the BrightPeak Group. Specialist in talent development, wellbeing, and building high-performing teams.",              img: "/team/nn_photo.avif",  bg: "#FFE4E6" },
-];
 
 type StatItem = { value?: number | null; suffix?: string | null; label?: string | null };
 type FeatureItem = { title?: string | null; desc?: string | null };
@@ -113,6 +77,7 @@ type HomeData = {
   learnerCardImage?: string | null;
   learnerBullets?: (string | null)[] | null;
   ctaHeadline?: string | null;
+  ctaSubtext?: string | null;
   ctaPhone?: string | null;
   ctaEmail?: string | null;
 };
@@ -133,7 +98,6 @@ export default function HomePageClient({ query, variables, data: initialData, fe
   const employers = (home.employers ?? []).filter(Boolean) as string[];
   const features = (home.features ?? []).filter(Boolean) as FeatureItem[];
   const steps = (home.steps ?? []).filter(Boolean) as StepItem[];
-  const insights = (home.insights ?? []).filter(Boolean) as InsightItem[];
   const employerBullets = (home.employerBullets ?? []).filter(Boolean) as string[];
   const learnerBullets = (home.learnerBullets ?? []).filter(Boolean) as string[];
 
@@ -152,58 +116,47 @@ export default function HomePageClient({ query, variables, data: initialData, fe
         tinaDocument={data.home}
       />
 
-      {/* ── Stats widgets ── */}
-      <section className="py-10 bg-[#F4F6FF]">
+      {/* ── Stats bar ── */}
+      <section className="bg-slate-50 border-t border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-4 px-4 pb-3 lg:overflow-visible lg:mx-0 lg:px-0 lg:pb-0">
-            {stats.map((s, i) => {
-              const style = statStyles[i % statStyles.length];
-              return (
-                <AnimatedSection key={i} delay={i * 0.08} className="snap-start flex-shrink-0 w-[64vw] sm:w-[44vw] md:w-[36vw] lg:flex-1 lg:min-w-0">
-                  <div
-                    className="flex items-center gap-4 px-5 py-4 border-2 border-[#040B18]/10 rounded-2xl hover:border-[#040B18]/25 hover:-translate-y-1 hover:shadow-md transition-all duration-200 group h-full"
-                    style={{ backgroundColor: style.bg }}
-                  >
-                    <div className={`w-11 h-11 rounded-full bg-white border-2 border-[#040B18]/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all shadow-sm ${style.iconColor}`}>
-                      {statIcons[i % statIcons.length]}
-                    </div>
-                    <div>
-                      <StatCounter
-                        value={s.value ?? 0}
-                        suffix={s.suffix ?? ""}
-                        label=""
-                        delay={i * 0.1}
-                        numberClassName="font-display font-black text-2xl text-[#040B18] leading-none"
-                      />
-                      <div
-                        className="text-slate-500 text-xs font-semibold mt-0.5"
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        data-tina-field={tinaField(s as any, "label")}
-                      >
-                        {s.label}
-                      </div>
-                    </div>
-                  </div>
-                </AnimatedSection>
-              );
-            })}
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-200 py-6">
+            {stats.map((s, i) => (
+              <AnimatedSection key={i} delay={i * 0.08} className="text-center px-6 py-4 md:py-2">
+                <div className="font-display font-black text-3xl md:text-4xl text-[#040B18] leading-none">
+                  <StatCounter
+                    value={s.value ?? 0}
+                    suffix={s.suffix ?? ""}
+                    label=""
+                    delay={i * 0.1}
+                    numberClassName="font-display font-black text-3xl md:text-4xl text-[#040B18] leading-none"
+                  />
+                </div>
+                <div
+                  className="text-slate-500 text-xs font-semibold mt-1.5"
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  data-tina-field={tinaField(s as any, "label")}
+                >
+                  {s.label}
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── Trusted by — infinite marquee ── */}
-      <section className="bg-white py-8 overflow-hidden border-b border-slate-100">
-        <p className="text-center text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-6">
-          Trusted by leading UK employers
+      <section className="bg-white py-7 overflow-hidden border-b border-slate-100">
+        <p className="text-center text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-5">
+          The employers who stopped paying for training they could get funded
         </p>
         <div className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
-          <div className="animate-marquee flex gap-5 whitespace-nowrap" style={{ width: "max-content" }}>
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="animate-marquee flex gap-3 whitespace-nowrap" style={{ width: "max-content" }}>
             {[...employers, ...employers].map((name, i) => (
               <span
                 key={i}
-                className="inline-flex items-center px-5 py-2.5 rounded-xl bg-white border-2 border-[#040B18]/10 text-sm font-bold text-slate-500 flex-shrink-0"
+                className="inline-flex items-center px-5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-sm font-semibold text-slate-600 flex-shrink-0"
               >
                 {name}
               </span>
@@ -212,166 +165,147 @@ export default function HomePageClient({ query, variables, data: initialData, fe
         </div>
       </section>
 
-      {/* ── Top Categories ── */}
-      <section className="bg-[#F4F6FF] py-12 lg:py-16">
+      {/* ── Why BrightPeak — dark bento ── */}
+      <section id="why" className="bg-slate-950 py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-7">
-            <h2 className="font-display text-4xl md:text-5xl font-black text-[#040B18]">
-              Top Categories
+
+          <AnimatedSection className="mb-12">
+            <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-3">Why 500+ employers choose us</p>
+            <h2
+              className="font-display text-4xl md:text-5xl font-black text-white leading-tight max-w-2xl"
+              data-tina-field={tinaField(data.home, "whyHeadline")}
+            >
+              {home.whyHeadline ?? "Thirty years of delivery."}{" "}
+              <span className="text-slate-400">Three Ofsted Good providers. One team looking after you.</span>
             </h2>
-            <p className="mt-3 text-slate-500 text-base max-w-lg mx-auto">
-              Government funded across every major sector. Find the right track.
-            </p>
           </AnimatedSection>
 
-          <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-4 px-4 pb-3 lg:overflow-visible lg:mx-0 lg:px-0 lg:pb-0">
-            {categories.map((c) => (
-              <div key={c.name} className="snap-start flex-shrink-0 w-[64vw] sm:w-[44vw] md:w-[36vw] lg:flex-1 lg:min-w-0">
-                <Link
-                  href={c.href}
-                  className="flex flex-col items-center gap-4 px-8 py-7 border-2 border-[#040B18]/10 rounded-3xl hover:border-[#040B18]/25 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200 group h-full"
-                  style={{ backgroundColor: c.bg }}
-                >
-                  <div className="w-14 h-14 rounded-full bg-white border-2 border-[#040B18]/10 flex items-center justify-center group-hover:scale-110 group-hover:border-sky-300 transition-all shadow-sm">
-                    <c.Icon className="w-6 h-6 text-[#040B18] group-hover:text-sky-600 transition-colors" />
-                  </div>
-                  <div className="text-center">
-                    <h3 className="font-display font-extrabold text-[#040B18] text-sm leading-tight group-hover:text-sky-700 transition-colors">
-                      {c.name}
-                    </h3>
-                    <p className="text-[11px] text-slate-500 font-medium mt-1.5 leading-snug">{c.desc}</p>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* Bento grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-      {/* ── Why BrightPeak ── */}
-      <section id="why" className="bg-white py-14 lg:py-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
-
-            <AnimatedSection direction="left" className="relative order-2 lg:order-1 flex justify-center lg:justify-start">
-              <div className="relative" style={{width: 340, height: 420}}>
-                <div
-                  className="absolute top-0 left-0 overflow-hidden shadow-2xl border-2 border-[#040B18]/8"
-                  style={{ width: 260, height: 360, borderRadius: "46% 46% 20px 20px / 38% 38% 20px 20px" }}
-                >
-                  <Image
-                    src={home.whyImage1 ?? "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=85"}
-                    alt="Apprentices in group training session"
-                    fill className="object-cover" sizes="260px"
-                    data-tina-field={tinaField(data.home, "whyImage1")}
-                  />
+            {/* Funding card — spans 2 cols */}
+            <AnimatedSection delay={0.05} className="lg:col-span-2">
+              <div className="bg-slate-900 rounded-3xl p-8 relative overflow-hidden h-full">
+                <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle,#fff 1px,transparent 1px)", backgroundSize: "20px 20px" }} aria-hidden />
+                <div className="w-12 h-12 bg-sky-600 rounded-2xl flex items-center justify-center mb-6 flex-shrink-0">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
-                <div
-                  className="absolute overflow-hidden border-4 border-white shadow-2xl z-10"
-                  style={{ width: 148, height: 148, bottom: 0, right: 0, borderRadius: 20 }}
+                <h3 className="text-2xl font-black text-white mb-3">The government pays. You don&apos;t.</h3>
+                <p
+                  className="text-slate-400 leading-relaxed mb-6"
+                  data-tina-field={tinaField(data.home, "whySubtext")}
                 >
-                  <Image
-                    src={home.whyImage2 ?? "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=220&q=85"}
-                    alt="BrightPeak consultant mentor"
-                    fill className="object-cover" sizes="148px"
-                    data-tina-field={tinaField(data.home, "whyImage2")}
-                  />
-                </div>
-                <div className="absolute -top-5 -left-6 bg-white rounded-2xl shadow-xl border-2 border-[#040B18]/8 px-5 py-4 z-20">
-                  <div className="font-display text-3xl font-black text-slate-900 leading-none">85%</div>
-                  <div className="text-xs text-slate-500 font-medium mt-1">Success rate</div>
-                </div>
-                <div
-                  className="absolute rounded-xl shadow-lg px-4 py-2.5 hidden lg:block z-20"
-                  style={{ top: 160, right: -16, background: "linear-gradient(135deg, #0EA5E9 0%, #0369A1 100%)" }}
-                >
-                  <div className="text-white text-xs font-bold leading-snug">100% Government</div>
-                  <div className="text-sky-200 text-xs leading-snug">Funded Programme</div>
+                  {home.whySubtext ?? "95 to 100 percent of all training costs are covered by the UK government's apprenticeship levy. Most employers pay nothing. Learners pay nothing. The training happens. The qualification is real. The only thing that costs you anything is the 20 minutes it takes to book a call."}
+                </p>
+                <div className="flex items-center gap-8 pt-6 border-t border-slate-800">
+                  <div>
+                    <div className="text-2xl font-black text-white">£0</div>
+                    <div className="text-slate-500 text-xs font-semibold mt-0.5">What most employers pay</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-black text-white">£0</div>
+                    <div className="text-slate-500 text-xs font-semibold mt-0.5">Tuition — ever</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-black text-white">100%</div>
+                    <div className="text-slate-500 text-xs font-semibold mt-0.5">Covered by government funding</div>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
 
-            <div className="order-1 lg:order-2">
-              <AnimatedSection direction="right">
-                <span className="text-sky-600 text-sm font-semibold uppercase tracking-widest">Why BrightPeak</span>
-                <h2
-                  className="mt-3 font-display text-4xl md:text-5xl font-black text-[#040B18] leading-tight mb-5"
-                  data-tina-field={tinaField(data.home, "whyHeadline")}
-                >
-                  {home.whyHeadline ?? "Infrastructure of a large provider."}{" "}
-                  <span className="text-slate-400">Care of a small one.</span>
-                </h2>
-                <p
-                  className="text-slate-500 text-lg leading-relaxed mb-10"
-                  data-tina-field={tinaField(data.home, "whySubtext")}
-                >
-                  {home.whySubtext ?? "Three decades of experience means we know what works. We build everything around your organisation, not our sales targets."}
-                </p>
-                <div className="space-y-7">
-                  {features.map((f, i) => {
-                    const style = featureStyles[i % featureStyles.length];
-                    const Icon = featureIcons[i % featureIcons.length];
-                    return (
-                      <AnimatedSection key={i} delay={i * 0.08}>
-                        <div className="flex gap-4">
-                          <div
-                            className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#040B18]/10 ${style.iconColor}`}
-                            style={{ backgroundColor: style.bg }}
-                          >
-                            <Icon />
-                          </div>
-                          <div>
-                            <h3
-                              className="font-display text-slate-900 font-bold text-base mb-1"
-                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                              data-tina-field={tinaField(f as any, "title")}
-                            >
-                              {f.title}
-                            </h3>
-                            <p
-                              className="text-slate-500 text-sm leading-relaxed"
-                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                              data-tina-field={tinaField(f as any, "desc")}
-                            >
-                              {f.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </AnimatedSection>
-                    );
-                  })}
+            {/* Image card */}
+            <AnimatedSection delay={0.1}>
+              <div className="bg-sky-700 rounded-3xl overflow-hidden relative min-h-[280px] h-full">
+                <Image
+                  src={home.whyImage1 ?? "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&q=80"}
+                  alt="Learner with tutor"
+                  fill className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  data-tina-field={tinaField(data.home, "whyImage1")}
+                />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(3,105,161,0.92) 0%,transparent 55%)" }} />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="text-white font-black text-xl">One tutor. Your tutor.</div>
+                  <div className="text-sky-200 text-sm mt-1">From first session to end point assessment — same person, every step.</div>
                 </div>
-              </AnimatedSection>
-            </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Feature cards from CMS */}
+            {features.slice(0, 2).map((f, i) => {
+              const iconColors = ["text-emerald-400", "text-amber-400"];
+              const iconBgs = ["bg-emerald-500/20", "bg-amber-500/20"];
+              const Icon = featureIcons[i % featureIcons.length];
+              return (
+                <AnimatedSection key={i} delay={0.1 + i * 0.08}>
+                  <div className="bg-slate-900 rounded-3xl p-7 h-full">
+                    <div className={`w-10 h-10 ${iconBgs[i]} rounded-xl flex items-center justify-center mb-5 ${iconColors[i]}`}>
+                      <Icon />
+                    </div>
+                    <h3
+                      className="text-white font-bold text-lg mb-2"
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      data-tina-field={tinaField(f as any, "title")}
+                    >
+                      {f.title}
+                    </h3>
+                    <p
+                      className="text-slate-400 text-sm leading-relaxed"
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      data-tina-field={tinaField(f as any, "desc")}
+                    >
+                      {f.desc}
+                    </p>
+                  </div>
+                </AnimatedSection>
+              );
+            })}
+
+            {/* 30+ years stat card */}
+            <AnimatedSection delay={0.26}>
+              <div className="bg-sky-950 border border-sky-900/60 rounded-3xl p-7 h-full">
+                <div className="text-5xl font-black text-sky-400 mb-3">30+</div>
+                <div className="text-white font-bold text-lg mb-2">
+                  {features[3]?.title ?? "Three decades. We know what works."}
+                </div>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  {features[3]?.desc ?? "Founded in 1995. Every funding model, every Ofsted framework overhauled. We adapted every time — because the employers and learners we work with needed us to."}
+                </p>
+              </div>
+            </AnimatedSection>
 
           </div>
         </div>
       </section>
 
       {/* ── Featured Courses ── */}
-      <section className="bg-[#F4F6FF] py-14 lg:py-20">
+      <section id="courses" className="bg-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="flex items-end justify-between gap-4 mb-7">
-            <h2 className="font-display text-4xl md:text-5xl font-black text-[#040B18]">
-              Popular Courses
-            </h2>
-            <Link href="/courses" className="text-sky-600 font-semibold text-sm flex items-center gap-1.5 hover:gap-3 transition-all whitespace-nowrap pb-1.5">
-              View all <ArrowRight className="w-4 h-4" />
-            </Link>
+          <AnimatedSection className="mb-10">
+            <p className="text-sky-600 text-sm font-semibold uppercase tracking-widest mb-3">Find your programme</p>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <h2 className="font-display text-4xl md:text-5xl font-black text-[#040B18] leading-tight">
+                The qualification<br />that gets you hired.
+              </h2>
+              <p className="text-slate-500 text-base max-w-xs leading-relaxed">
+                Every course below is fully funded by the government. No fees. No debt. Just a real qualification with real employers.
+              </p>
+            </div>
           </AnimatedSection>
 
-          <div className="flex gap-2 flex-wrap justify-center mb-10">
-            <span className="px-5 py-2 rounded-full text-sm font-bold bg-[#040B18] text-white cursor-default">All</span>
+          <div className="flex gap-2 flex-wrap mb-10">
+            <span className="px-5 py-2 rounded-full text-sm font-bold bg-slate-900 text-white cursor-default">All courses</span>
             {[
-              { label: "Apprenticeships", href: "/courses" },
               { label: "Business & Admin", href: "/courses?sector=business" },
               { label: "Digital & Tech", href: "/courses?sector=tech" },
               { label: "Finance", href: "/courses?sector=finance" },
+              { label: "Customer Service", href: "/courses?sector=service" },
             ].map((tab) => (
               <Link
                 key={tab.label}
                 href={tab.href}
-                className="px-5 py-2 rounded-full text-sm font-semibold border-2 border-[#040B18]/10 text-slate-500 hover:border-sky-300 hover:text-sky-600 transition-all bg-white"
+                className="px-5 py-2 rounded-full text-sm font-semibold border-2 border-slate-200 text-slate-500 hover:border-sky-300 hover:text-sky-600 transition-all bg-white"
               >
                 {tab.label}
               </Link>
@@ -387,62 +321,21 @@ export default function HomePageClient({ query, variables, data: initialData, fe
           </div>
 
           <div className="text-center mt-10">
-            <Link href="/courses" className="btn-primary inline-flex">
-              View All Programmes <ArrowRight className="w-4 h-4" />
+            <Link href="/courses" className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg">
+              See all funded programmes <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Meet Our Team ── */}
-      <section className="bg-[#F4F6FF] py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
-            <div>
-              <div className="w-10 h-1 rounded-full bg-sky-500 mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-black text-[#040B18]">
-                Meet Our Team
-              </h2>
-            </div>
-            <p className="text-slate-500 text-sm max-w-xs md:text-right leading-relaxed">
-              Dedicated specialists who know your sector inside out. One point of contact, start to finish.
-            </p>
-          </AnimatedSection>
-
-          <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-4 px-4 pb-4">
-            {team.map((c) => (
-              <div key={c.name} className="snap-start flex-shrink-0 w-[68vw] sm:w-[44vw] md:w-[32vw] lg:w-[220px] xl:w-[240px]">
-                <div
-                  className="rounded-3xl p-6 text-center h-full flex flex-col border-2 border-[#040B18]/10 hover:border-[#040B18]/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200 group"
-                  style={{ backgroundColor: c.bg }}
-                >
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-md group-hover:scale-105 transition-transform duration-500">
-                    <Image
-                      src={c.img}
-                      alt={c.name}
-                      width={80}
-                      height={80}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <h3 className="font-display font-black text-[#040B18] text-sm leading-tight">{c.name}</h3>
-                  <p className="text-sky-700 text-[10px] font-bold mt-1 mb-3 uppercase tracking-wide leading-snug">{c.role}</p>
-                  <p className="text-slate-500 text-[11px] leading-relaxed flex-1">{c.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── How It Works ── */}
-      <section id="how" className="bg-[#F4F6FF] py-14 lg:py-20">
+      <section id="how" className="bg-white py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
             <div>
               <AnimatedSection>
-                <span className="text-sky-600 text-sm font-semibold uppercase tracking-widest">Process</span>
+                <span className="text-sky-600 text-sm font-semibold uppercase tracking-widest">What happens next</span>
                 <h2
                   className="mt-3 font-display text-4xl md:text-5xl font-black text-[#040B18] leading-tight mb-12"
                   data-tina-field={tinaField(data.home, "howHeadline")}
@@ -456,7 +349,7 @@ export default function HomePageClient({ query, variables, data: initialData, fe
                 {steps.map((step, i) => (
                   <AnimatedSection key={i} delay={i * 0.1}>
                     <div className="flex gap-5 relative pb-10 last:pb-0">
-                      <div className="w-10 h-10 rounded-full bg-white border-2 border-[#040B18]/10 flex items-center justify-center text-xs font-black text-sky-600 flex-shrink-0 relative z-10 shadow-sm">
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0 relative z-10 shadow-sm ${i === steps.length - 1 ? "bg-sky-600 border-2 border-sky-600 text-white" : "bg-white border-2 border-slate-200 text-sky-600"}`}>
                         {String(i + 1).padStart(2, "0")}
                       </div>
                       <div className="pt-1.5 pb-1">
@@ -482,7 +375,7 @@ export default function HomePageClient({ query, variables, data: initialData, fe
 
               <AnimatedSection delay={0.45} className="mt-10 ml-15">
                 <Link href="/#cta" className="btn-primary inline-flex">
-                  Start your free skills audit <ArrowRight className="w-4 h-4" />
+                  Start the conversation — it&apos;s free <ArrowRight className="w-4 h-4" />
                 </Link>
               </AnimatedSection>
             </div>
@@ -505,8 +398,8 @@ export default function HomePageClient({ query, variables, data: initialData, fe
                       </svg>
                     </div>
                     <div>
-                      <div className="font-display text-slate-900 font-bold text-sm">Ofsted Good</div>
-                      <div className="text-slate-500 text-xs">30+ years delivering results across the UK</div>
+                      <div className="font-display text-slate-900 font-bold text-sm">Ofsted Good across all three providers</div>
+                      <div className="text-slate-500 text-xs">Thirty years. Real results. Every time.</div>
                     </div>
                   </div>
                 </div>
@@ -522,115 +415,28 @@ export default function HomePageClient({ query, variables, data: initialData, fe
       {/* ── Testimonials ── */}
       <TestimonialsSection testimonials={testimonials} />
 
-      {/* ── Read Our Insights ── */}
-      <section className="bg-[#F4F6FF] py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="flex items-end justify-between gap-4 mb-8">
-            <div>
-              <p className="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-2">Latest</p>
-              <h2
-                className="font-display text-4xl md:text-5xl font-black text-[#040B18]"
-                data-tina-field={tinaField(data.home, "insightsHeadline")}
-              >
-                {home.insightsHeadline ?? "Insights & Guidance"}
-              </h2>
-            </div>
-            <Link href="https://apps.brightpeakgroup.com/" target="_blank" rel="noopener noreferrer" className="text-sky-600 font-semibold text-sm flex items-center gap-1.5 hover:gap-3 transition-all whitespace-nowrap pb-1.5">
-              Read all <ArrowRight className="w-4 h-4" />
-            </Link>
-          </AnimatedSection>
-
-          {insights.length > 0 ? (
-            <div className="flex gap-5 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-4 px-4 pb-3 lg:grid lg:grid-cols-3 lg:overflow-visible lg:mx-0 lg:px-0 lg:pb-0">
-              {insights.map((b, i) => {
-                const bgs = ["#DBEAFE", "#EDE9FE", "#D1FAE5"];
-                const bg = bgs[i % bgs.length];
-                return (
-                  <AnimatedSection key={i} delay={i * 0.1} className="snap-start flex-shrink-0 w-[80vw] sm:w-[55vw] md:w-[42vw] lg:w-auto">
-                    <Link
-                      href={b.href ?? "https://apps.brightpeakgroup.com/"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-3xl overflow-hidden group cursor-pointer h-full flex flex-col border-2 border-[#040B18]/10 hover:border-[#040B18]/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200"
-                      style={{ backgroundColor: bg }}
-                    >
-                      <div className="relative h-48 overflow-hidden rounded-t-[22px] flex-shrink-0">
-                        <Image
-                          src={b.img ?? "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80"}
-                          alt={b.title ?? ""}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          sizes="(max-width: 768px) 80vw, 33vw"
-                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                          data-tina-field={tinaField(b as any, "img")}
-                        />
-                        <div className="absolute top-3 left-3">
-                          <span
-                            className="px-3 py-1 rounded-full text-[11px] font-bold bg-sky-600 text-white"
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            data-tina-field={tinaField(b as any, "tag")}
-                          >
-                            {b.tag}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="p-5 flex-1">
-                        <div className="flex items-center gap-3 text-slate-500 text-xs font-medium mb-3">
-                          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                          <span data-tina-field={tinaField(b as any, "date")}>{b.date}</span>
-                          <span className="w-1 h-1 rounded-full bg-slate-400/40" />
-                          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                          <span data-tina-field={tinaField(b as any, "read")}>{b.read}</span>
-                        </div>
-                        <h3
-                          className="font-display font-bold text-[#040B18] text-base leading-snug group-hover:text-sky-700 transition-colors line-clamp-2"
-                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                          data-tina-field={tinaField(b as any, "title")}
-                        >
-                          {b.title}
-                        </h3>
-                      </div>
-                    </Link>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          ) : null}
-
-          <div className="text-center mt-10">
-            <Link href="https://apps.brightpeakgroup.com/" className="btn-outline-light inline-flex">
-              Read More <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* ── Dual Audience ── */}
-      <section className="bg-[#F4F6FF] py-14 lg:py-20">
+      <section id="employers" className="bg-slate-50 py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="mb-8">
+          <AnimatedSection className="text-center mb-12">
             <h2
-              className="font-display text-4xl md:text-5xl font-black text-[#040B18]"
+              className="font-display text-4xl md:text-5xl font-black text-[#040B18] leading-tight mb-4"
               data-tina-field={tinaField(data.home, "dualHeadline")}
             >
-              {home.dualHeadline ? (
-                home.dualHeadline
-              ) : (
-                <>For <span className="text-sky-600">employers.</span>{" "}For <span className="text-slate-400">learners.</span></>
-              )}
+              {home.dualHeadline ?? <>Whether you&apos;re hiring<br />or <span className="text-sky-600">learning</span> — we&apos;ve got you.</>}
             </h2>
             <p
-              className="mt-3 text-slate-500 text-base max-w-sm"
+              className="text-slate-500 text-lg max-w-md mx-auto"
               data-tina-field={tinaField(data.home, "dualSubtext")}
             >
-              {home.dualSubtext ?? "Whether you’re building a team or building a career — we deliver."}
+              {home.dualSubtext ?? "Two audiences. One platform. Fully funded by government."}
             </p>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6">
             <AnimatedSection delay={0.1} direction="left">
-              <div className="rounded-3xl overflow-hidden h-full flex flex-col group border-2 border-[#040B18]/10 hover:border-[#040B18]/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200" style={{ backgroundColor: "#DBEAFE" }}>
-                <div className="relative h-56 overflow-hidden flex-shrink-0">
+              <div className="rounded-3xl overflow-hidden h-full flex flex-col group border-2 border-slate-100 hover:border-sky-200 hover:shadow-xl transition-all duration-300 bg-white">
+                <div className="relative h-64 overflow-hidden flex-shrink-0">
                   <Image
                     src={home.employerCardImage ?? "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85"}
                     alt="Employer team meeting with apprentice"
@@ -639,9 +445,13 @@ export default function HomePageClient({ query, variables, data: initialData, fe
                     sizes="(max-width: 768px) 100vw, 50vw"
                     data-tina-field={tinaField(data.home, "employerCardImage")}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#040B18]/50 to-transparent" />
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(15,23,42,0.75),transparent 55%)" }} />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1.5 rounded-full text-xs font-bold bg-sky-600 text-white">For Employers</span>
+                  </div>
+                  <div className="absolute bottom-5 left-6">
+                    <div className="text-4xl font-black text-white">£0</div>
+                    <div className="text-white/70 text-sm font-semibold">What most employers pay</div>
                   </div>
                 </div>
                 <div className="p-7 flex flex-col flex-1">
@@ -669,16 +479,16 @@ export default function HomePageClient({ query, variables, data: initialData, fe
                       </li>
                     ))}
                   </ul>
-                  <Link href="/#cta" className="btn-primary inline-flex self-start">
-                    Book Discovery Call <ArrowRight className="w-4 h-4" />
+                  <Link href="/#cta" className="inline-flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-bold px-6 py-3.5 rounded-full transition-all w-full">
+                    Book your free discovery call <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2} direction="right">
-              <div className="rounded-3xl overflow-hidden h-full flex flex-col group border-2 border-[#040B18]/10 hover:border-[#040B18]/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-200" style={{ backgroundColor: "#D1FAE5" }}>
-                <div className="relative h-56 overflow-hidden flex-shrink-0">
+              <div className="rounded-3xl overflow-hidden h-full flex flex-col group border-2 border-slate-100 hover:border-amber-200 hover:shadow-xl transition-all duration-300 bg-white">
+                <div className="relative h-64 overflow-hidden flex-shrink-0">
                   <Image
                     src={home.learnerCardImage ?? "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=85"}
                     alt="Apprentices at laptops in training session"
@@ -687,9 +497,13 @@ export default function HomePageClient({ query, variables, data: initialData, fe
                     sizes="(max-width: 768px) 100vw, 50vw"
                     data-tina-field={tinaField(data.home, "learnerCardImage")}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#040B18]/40 to-transparent" />
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(15,23,42,0.75),transparent 55%)" }} />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1.5 rounded-full text-xs font-bold bg-amber-500 text-white">For Learners</span>
+                  </div>
+                  <div className="absolute bottom-5 left-6">
+                    <div className="text-4xl font-black text-white">£0</div>
+                    <div className="text-white/70 text-sm font-semibold">Tuition. Now and always.</div>
                   </div>
                 </div>
                 <div className="p-7 flex flex-col flex-1">
@@ -717,8 +531,8 @@ export default function HomePageClient({ query, variables, data: initialData, fe
                       </li>
                     ))}
                   </ul>
-                  <Link href="/courses" className="btn-outline-light inline-flex self-start">
-                    Browse Open Programmes <ArrowRight className="w-4 h-4" />
+                  <Link href="/courses" className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3.5 rounded-full transition-all w-full">
+                    Find my programme <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
@@ -727,60 +541,54 @@ export default function HomePageClient({ query, variables, data: initialData, fe
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section id="cta" className="relative overflow-hidden" style={{background: "linear-gradient(135deg, #0284C7 0%, #023E6B 100%)"}}>
-        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "24px 24px"}} aria-hidden />
+      {/* ── CTA — dark navy, split audience ── */}
+      <section id="cta" className="bg-slate-950">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center">
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
-          <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-0">
+          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
+            One call. That&apos;s all it takes.
+          </p>
+          <h2
+            className="font-display text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6"
+            data-tina-field={tinaField(data.home, "ctaHeadline")}
+          >
+            {home.ctaHeadline ?? "The funding is sitting there. Your competitors already know about it."}
+          </h2>
+          <p className="text-slate-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+            {home.ctaSubtext ?? "Every week you wait is another week of training you're not claiming. A 20-minute call is all it takes to find out what you're entitled to."}
+          </p>
 
-            <div className="flex-1">
-              <p className="text-white/50 text-xs font-bold uppercase tracking-widest mb-2">Start today — it&apos;s free</p>
-              <h2
-                className="font-display text-2xl md:text-3xl font-black text-white leading-tight"
-                data-tina-field={tinaField(data.home, "ctaHeadline")}
-              >
-                {home.ctaHeadline ?? "Build your best team with government funding."}
-              </h2>
-            </div>
-
-            <div className="hidden lg:block w-px h-14 bg-white/15 mx-10 flex-shrink-0" />
-
-            <div className="flex-shrink-0 text-center lg:text-left">
-              <p className="text-white/50 text-[11px] font-semibold uppercase tracking-wider mb-1">Call us</p>
-              <a
-                href={`tel:${(home.ctaPhone ?? "01246918340").replace(/\s/g, "")}`}
-                className="font-display font-black text-2xl text-white hover:text-white/80 transition-colors block"
-                data-tina-field={tinaField(data.home, "ctaPhone")}
-              >
-                {home.ctaPhone ?? "01246 918 340"}
-              </a>
-              <a
-                href={`mailto:${home.ctaEmail ?? "contact@brightpeakgroup.com"}`}
-                className="text-white/50 text-xs hover:text-white/80 transition-colors"
-                data-tina-field={tinaField(data.home, "ctaEmail")}
-              >
-                {home.ctaEmail ?? "contact@brightpeakgroup.com"}
-              </a>
-            </div>
-
-            <div className="hidden lg:block w-px h-14 bg-white/15 mx-10 flex-shrink-0" />
-
-            <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 flex-shrink-0">
-              <Link href="https://apps.brightpeakgroup.com/book.html" className="btn-primary text-sm px-6 py-3 whitespace-nowrap">
-                Book Free Call <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link href="/courses" className="btn-outline-light text-sm px-6 py-3 whitespace-nowrap text-center">
-                Browse Programmes
-              </Link>
-            </div>
-
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <Link href="/courses" className="inline-flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-500 text-white font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl text-base">
+              I want to learn — find my programme <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link href="https://apps.brightpeakgroup.com/book.html" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white font-bold px-8 py-4 rounded-full transition-all border border-white/10 hover:-translate-y-0.5 text-base">
+              I&apos;m an employer — let&apos;s talk <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
-          <div className="flex flex-wrap gap-x-6 gap-y-1 mt-7 pt-6 border-t border-white/10">
-            {["Ofsted Good Provider", "30+ Years Delivering", "85% Success Rate", "No Cost to Most Employers"].map((t) => (
-              <span key={t} className="text-white/40 text-xs font-medium flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-white/30 inline-block" />{t}
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <a
+              href={`tel:${(home.ctaPhone ?? "01246918340").replace(/\s/g, "")}`}
+              className="font-display font-black text-2xl text-white hover:text-sky-400 transition-colors"
+              data-tina-field={tinaField(data.home, "ctaPhone")}
+            >
+              {home.ctaPhone ?? "01246 918 340"}
+            </a>
+            <span className="text-slate-700">·</span>
+            <a
+              href={`mailto:${home.ctaEmail ?? "contact@brightpeakgroup.com"}`}
+              className="text-slate-400 hover:text-white transition-colors text-sm font-medium"
+              data-tina-field={tinaField(data.home, "ctaEmail")}
+            >
+              {home.ctaEmail ?? "contact@brightpeakgroup.com"}
+            </a>
+          </div>
+
+          <div className="flex flex-wrap gap-x-6 gap-y-1 justify-center">
+            {["Ofsted Good — all three providers", "Est. 1995", "85% pass first time", "Zero cost to most employers"].map((t) => (
+              <span key={t} className="text-slate-600 text-xs font-medium flex items-center gap-1.5">
+                <span className="w-1 h-1 rounded-full bg-slate-700 inline-block" />{t}
               </span>
             ))}
           </div>

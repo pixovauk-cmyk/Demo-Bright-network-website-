@@ -136,16 +136,20 @@ export default defineConfig({
           router: () => "/",
         },
         fields: [
+          // ── Announcement ──
           {
             name: "announcementText",
             type: "string",
             label: "Announcement Bar Text",
             ui: { description: "Top banner shown above the hero" },
           },
+
+          // ── Hero ──
           {
             name: "heroHeadline",
             type: "string",
-            label: "Hero Headline",
+            label: "Hero Headline (first line)",
+            ui: { description: 'e.g. "Start your career." — second line is always "The government picks up the bill."' },
           },
           {
             name: "heroSubtext",
@@ -169,6 +173,198 @@ export default defineConfig({
             label: "Trust Chip 3",
           },
           {
+            name: "heroImage1",
+            type: "string",
+            label: "Hero Image (right column)",
+            ui: { description: "Full-height image filling the right hero column" },
+          },
+          {
+            name: "heroImage2",
+            type: "string",
+            label: "Hero Image 2 (unused — reserved)",
+          },
+
+          // ── Stats bar ──
+          {
+            name: "stats",
+            type: "object",
+            label: "Stats Bar (4 numbers below hero)",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.label || "Stat" }),
+            },
+            fields: [
+              { name: "value", type: "number", label: "Number" },
+              { name: "suffix", type: "string", label: "Suffix (e.g. + or %)" },
+              { name: "label", type: "string", label: "Label below number" },
+            ],
+          },
+
+          // ── Employers marquee ──
+          {
+            name: "employers",
+            type: "string",
+            label: "Employer Names (scrolling marquee)",
+            list: true,
+            ui: { description: "One employer name per line" },
+          },
+
+          // ── Why BrightPeak ──
+          {
+            name: "whyHeadline",
+            type: "string",
+            label: "Why Section Headline",
+          },
+          {
+            name: "whySubtext",
+            type: "string",
+            label: "Why Section Sub-text (funding card body)",
+            ui: { component: "textarea" },
+          },
+          {
+            name: "whyImage1",
+            type: "string",
+            label: "Why Section — Tutor Image",
+            ui: { description: "Image used in the 'One tutor. Your tutor.' bento card" },
+          },
+          {
+            name: "whyImage2",
+            type: "string",
+            label: "Why Section — Image 2 (reserved)",
+          },
+          {
+            name: "features",
+            type: "object",
+            label: "Why Feature Cards (bento grid — 4 items)",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.title || "Feature" }),
+            },
+            fields: [
+              { name: "title", type: "string", label: "Card Headline" },
+              {
+                name: "desc",
+                type: "string",
+                label: "Card Body",
+                ui: { component: "textarea" },
+              },
+            ],
+          },
+
+          // ── How It Works ──
+          {
+            name: "howHeadline",
+            type: "string",
+            label: "How It Works Headline",
+          },
+          {
+            name: "howImage",
+            type: "string",
+            label: "How It Works — Right Column Image",
+          },
+          {
+            name: "steps",
+            type: "object",
+            label: "Process Steps (4 steps)",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.title || "Step" }),
+            },
+            fields: [
+              { name: "title", type: "string", label: "Step Headline" },
+              {
+                name: "desc",
+                type: "string",
+                label: "Step Description",
+                ui: { component: "textarea" },
+              },
+            ],
+          },
+
+          // ── Insights (hidden section — data kept for future use) ──
+          {
+            name: "insightsHeadline",
+            type: "string",
+            label: "Insights Section Headline",
+          },
+          {
+            name: "insights",
+            type: "object",
+            label: "Insight Articles",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.title || "Article" }),
+            },
+            fields: [
+              { name: "tag", type: "string", label: "Tag / Category" },
+              { name: "title", type: "string", label: "Article Title" },
+              { name: "date", type: "string", label: "Date (display)" },
+              { name: "read", type: "string", label: "Read time (e.g. 5 min read)" },
+              { name: "img", type: "string", label: "Image URL" },
+              { name: "href", type: "string", label: "Link URL" },
+            ],
+          },
+
+          // ── Dual Audience ──
+          {
+            name: "dualHeadline",
+            type: "string",
+            label: "Dual Audience Headline",
+          },
+          {
+            name: "dualSubtext",
+            type: "string",
+            label: "Dual Audience Sub-text",
+          },
+          // Employer card
+          {
+            name: "employerCardHeadline",
+            type: "string",
+            label: "Employer Card — Headline",
+          },
+          {
+            name: "employerCardSubtext",
+            type: "string",
+            label: "Employer Card — Body",
+            ui: { component: "textarea" },
+          },
+          {
+            name: "employerCardImage",
+            type: "string",
+            label: "Employer Card — Image",
+          },
+          {
+            name: "employerBullets",
+            type: "string",
+            label: "Employer Card — Bullet Points",
+            list: true,
+          },
+          // Learner card
+          {
+            name: "learnerCardHeadline",
+            type: "string",
+            label: "Learner Card — Headline",
+          },
+          {
+            name: "learnerCardSubtext",
+            type: "string",
+            label: "Learner Card — Body",
+            ui: { component: "textarea" },
+          },
+          {
+            name: "learnerCardImage",
+            type: "string",
+            label: "Learner Card — Image",
+          },
+          {
+            name: "learnerBullets",
+            type: "string",
+            label: "Learner Card — Bullet Points",
+            list: true,
+          },
+
+          // ── CTA Section ──
+          {
             name: "ctaHeadline",
             type: "string",
             label: "CTA Headline",
@@ -187,7 +383,7 @@ export default defineConfig({
           {
             name: "ctaEmail",
             type: "string",
-            label: "Email",
+            label: "Email Address",
           },
         ],
       },

@@ -111,9 +111,15 @@ export default function Navbar() {
           </div>
 
           {/* Right CTAs */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="/auth/login"
+              className="text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors px-2"
+            >
+              Sign in
+            </Link>
             <Link href="/#cta" className="btn-primary text-sm py-2.5 px-5">
-              Book Free Call
+              Claim your free call
             </Link>
           </div>
 
@@ -157,14 +163,21 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-            <div className="pt-3 border-t border-slate-100">
+            <div className="pt-3 border-t border-slate-100 space-y-2">
+              <Link
+                href="/auth/login"
+                onClick={() => setOpen(false)}
+                className="block w-full text-center px-5 py-3 rounded-xl text-sm font-semibold text-slate-600 bg-slate-50 hover:bg-slate-100 transition-colors"
+              >
+                Sign in to portal
+              </Link>
               <Link
                 href="/#cta"
                 onClick={() => setOpen(false)}
                 className="block w-full text-center px-5 py-3.5 rounded-xl text-sm font-bold text-white transition-colors"
                 style={{ background: "linear-gradient(135deg, #0EA5E9 0%, #0369A1 100%)" }}
               >
-                Book Free Call
+                Claim your free call
               </Link>
             </div>
           </div>

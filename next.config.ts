@@ -8,6 +8,15 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "www.brightpeakgroup.com", pathname: "/**" },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/admin",
+        destination: "/admin/index.html",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
